@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/iron_man"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/iron_man_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FirstApplication">
+        <activity
+            android:name=".PickerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".newshub.NewsHubHomePage"
+            android:exported="false" />
+        <activity
+            android:name=".DifferentStorageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".SharedPreferenceDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ShareImageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ImplicitIntentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".notes.ui.CreateOrEditNotePage"
+            android:exported="false"
+            android:theme="@style/Theme.NotesApp" />
+        <activity
+            android:name=".notes.ui.NotesHomePage"
+            android:exported="false" />
+        <activity
+            android:name=".auth.SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Auth" />
+        <activity
+            android:name=".auth.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Auth" />
+        <activity
+            android:name=".PracticeLayoutActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".PracticeLayoutActivity1"
+            android:exported="true" />
+        <activity
+            android:name=".coffeeshop.ParentPage"
+            android:exported="false"
+            android:theme="@style/Theme.CoffeeShop" />
+        <activity
+            android:name=".coffeeshop.GetStartedPage"
+            android:exported="false"
+            android:theme="@style/Theme.CoffeeShop" />
+        <activity
+            android:name=".BottomNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PersistDataWhileConfigChange"
+            android:exported="false" />
+        <activity
+            android:name=".ResponsiveActivity"
+            android:exported="false">
+
+            <!-- NOTE: SAME LAUNCHER INTENT IN HomePageActivity: App will get cloned for each launcher -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".HomePageActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".NavigationDrawerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar" />
+        <activity
+            android:name=".TabsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecyclerViewActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".RecyclerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ViewPagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FragmentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
