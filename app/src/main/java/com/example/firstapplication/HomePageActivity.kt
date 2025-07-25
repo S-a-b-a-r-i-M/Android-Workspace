@@ -167,6 +167,17 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Accessing camera, file picker.....",
                 PickerActivity::class.java,
                 iconId = R.drawable.outline_network_ping_24
+            ),
+            SingleActivityData(
+                "Image Download Activity",
+                "",
+                ImageDownloadActivity::class.java
+            ),
+            SingleActivityData(
+                "ProgressBar & Spinner",
+                "Implementing progress bar and spinner...",
+                ProgressBarActivity::class.java,
+                R.drawable.outline_progress_activity_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView
