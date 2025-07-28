@@ -14,6 +14,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
@@ -46,6 +47,10 @@ class HomePageActivity : StackInfoAppCompactActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen() // SPLASH SCREEN
+        Thread.sleep(500)
+
         enableEdgeToEdge()
         printLogInfo("onCreate.....-------------->")
         binding = ActivityHomePageBinding.inflate(layoutInflater)
@@ -178,6 +183,12 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Implementing progress bar and spinner...",
                 ProgressBarActivity::class.java,
                 R.drawable.outline_progress_activity_24
+            ),
+            SingleActivityData(
+                "File Download",
+                "downloading pdf, doc, xml files into shared storage...",
+                FileDownloadActivity::class.java,
+                R.drawable.baseline_file_download_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

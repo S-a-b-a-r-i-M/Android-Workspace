@@ -25,6 +25,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
         <activity
+            android:name=".FileDownloadActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProgressBarActivity"
             android:exported="false" />
         <activity
@@ -106,10 +109,10 @@
         </activity>
         <activity
             android:name=".HomePageActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.MySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,6 +1,7 @@
 package com.example.firstapplication
 
 import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -25,6 +26,8 @@ class MainActivity2 : StackInfoAppCompactActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        val context: Context
 
       // RETURN DATA TO CALLED ACTIVITY
         returnDataTV = findViewById(R.id.returnDataTV)

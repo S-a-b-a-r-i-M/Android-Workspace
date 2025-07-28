@@ -131,7 +131,7 @@ class PickerActivity : AppCompatActivity() {
 
     private fun getFileInfo(uri: Uri): Pair<String, Long> {
         val cursor = contentResolver.query(uri, null, null, null, null)
-        return cursor?.let {
+        return cursor?.use {
             val nameIndex = it.getColumnIndex(OpenableColumns.DISPLAY_NAME)
             val sizeIndex = it.getColumnIndex(OpenableColumns.SIZE)
             it.moveToFirst()

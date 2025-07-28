@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnDownloadXml"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="2"
@@ -39,7 +39,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDownloadXml" />
 
     <Button
         android:id="@+id/button4"
@@ -50,7 +50,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/btnDownloadXml" />
 
     <Button
         android:id="@+id/button5"
