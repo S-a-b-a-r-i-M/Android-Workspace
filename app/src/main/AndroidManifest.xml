@@ -25,6 +25,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FirstApplication">
         <activity
+            android:name=".architectures.mvvm.ui.activity.AddBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvvm.ui.activity.BookDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvvm.ui.activity.BooksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvp2.presentation.view.SingleBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvp2.presentation.view.BookListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvp.presentation.view.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".architectures.mvc.NoteActivity"
+            android:exported="false" />
+        <activity
             android:name=".FileDownloadActivity"
             android:exported="false" />
         <activity
@@ -113,6 +134,7 @@
             android:theme="@style/Theme.MySplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

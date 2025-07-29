@@ -20,6 +20,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.firstapplication.architectures.mvp.presentation.view.UserActivity
+import com.example.firstapplication.architectures.mvvm.ui.activity.BooksActivity
 import com.example.firstapplication.databinding.ActivityHomePageBinding
 import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coffeeshop.GetStartedPage
@@ -189,6 +191,18 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "downloading pdf, doc, xml files into shared storage...",
                 FileDownloadActivity::class.java,
                 R.drawable.baseline_file_download_24
+            ),
+            SingleActivityData(
+                "User View (MVP Architecture)",
+                "Model-View-Presenter...",
+                UserActivity::class.java,
+                R.drawable.baseline_supervised_user_circle_24
+            ),
+            SingleActivityData(
+                "Book View (MVVM Architecture)",
+                "Model-View-ViewModel...",
+                BooksActivity::class.java,
+                R.drawable.outline_book_2_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

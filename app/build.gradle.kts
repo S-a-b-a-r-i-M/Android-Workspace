@@ -70,10 +70,11 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
     // For coroutines (recommended for async operations)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.2")
 
     // ViewModel and lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.activity:activity-ktx:1.8.2")
 
     // Splash Screen

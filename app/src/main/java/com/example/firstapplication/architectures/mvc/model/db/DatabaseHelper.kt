@@ -1,19 +1,20 @@
-package com.example.firstapplication.notes.data
+package com.example.firstapplication.architectures.mvc.model.db
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.example.firstapplication.architectures.mvc.model.db.tables.NoteTable
 
 class DatabaseHelper private constructor(context: Context) : SQLiteOpenHelper(
     context, DATABASE_NAME, null, DATABASE_VERSION
 ) {
 
     companion object {
-        private const val DATABASE_NAME = "NotesDB"
-        private const val DATABASE_VERSION = 1
-        private var INSTANCE: DatabaseHelper? = null
+        const val DATABASE_NAME = "NoteMVC.db"
+        const val DATABASE_VERSION = 1
+        var INSTANCE: DatabaseHelper? = null
 
-        fun getInstance(context: Context): DatabaseHelper {
+        fun getInstance(context: Context, ): DatabaseHelper {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: DatabaseHelper(context).also { INSTANCE = it }
             }

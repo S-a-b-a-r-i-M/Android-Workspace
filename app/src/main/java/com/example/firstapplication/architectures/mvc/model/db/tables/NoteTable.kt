@@ -1,13 +1,15 @@
-package com.example.firstapplication.notes.data
+package com.example.firstapplication.architectures.mvc.model.db.tables
 
-object NoteTable {
+import com.example.firstapplication.architectures.mvc.model.db.AbstractTable
+
+object NoteTable : AbstractTable {
     const val TABLE_NAME = "t_note"
     const val COLUMN_ID = "id"
     const val COLUMN_TITLE = "title"
     const val COLUMN_DESCRIPTION = "description"
     const val COLUMN_CREATED_AT = "created_at"
 
-    val createTableQuery = """
+    override val createTableQuery = """
         CREATE TABLE $TABLE_NAME (
             $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
             $COLUMN_TITLE TEXT NOT NULL,
@@ -16,5 +18,5 @@ object NoteTable {
         )
     """
 
-    val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
+    override val dropTableQuery = "DROP TABLE IF EXISTS $TABLE_NAME"
 }

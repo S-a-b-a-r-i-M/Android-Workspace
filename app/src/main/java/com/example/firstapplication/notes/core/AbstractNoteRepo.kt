@@ -1,6 +1,5 @@
 package com.example.firstapplication.notes.core
-
-import android.content.Context
+import cutomutils.Result
 import com.example.firstapplication.notes.core.entity.Note
 
 interface AbstractNoteRepo {

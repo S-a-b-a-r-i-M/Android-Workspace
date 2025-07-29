@@ -11,7 +11,7 @@ import com.example.firstapplication.R
 import com.example.firstapplication.notes.data.DatabaseHelper
 import com.example.firstapplication.databinding.ActivityCreateOrEditNotePageBinding
 import com.example.firstapplication.notes.core.AbstractNoteRepo
-import com.example.firstapplication.notes.core.Result
+import cutomutils.Result
 import com.example.firstapplication.notes.core.entity.Note
 import com.example.firstapplication.notes.data.NoteRepoImpl
 import cutomutils.customToast
@@ -85,6 +85,8 @@ class CreateOrEditNotePage : AppCompatActivity() {
                 finishWithResult(updatedNote)
                 customToast(this, "Note Updated ✅")
             }
+
+            Result.Loading -> TODO()
         }
     }
 
@@ -101,6 +103,8 @@ class CreateOrEditNotePage : AppCompatActivity() {
                 finishWithResult(result.data)
                 customToast(this, "Note saved successfully ✅")
             }
+
+            Result.Loading -> TODO()
         }
     }
 

@@ -1,17 +1,16 @@
-package com.example.firstapplication.notes.data
+package com.example.firstapplication.architectures.mvc.model.db
 
 import android.content.ContentValues
 import android.database.Cursor
 import android.util.Log
-import cutomutils.Result
-import com.example.firstapplication.notes.core.AbstractNoteRepo
-import com.example.firstapplication.notes.core.entity.Note
+import com.example.firstapplication.architectures.mvc.model.db.tables.NoteTable
+import com.example.firstapplication.architectures.mvc.model.entity.Note
 import cutomutils.ErrorCode
+import cutomutils.Result
 
-// TODO: FIX
-class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
+class NoteMVCRepo(private val dbHelper: DatabaseHelper) {
 
-    override fun createNote(title: String, description: String?): Result<Note> {
+    fun createNote(title: String, description: String?): Result<Note> {
         val values = ContentValues().apply {
             put(NoteTable.COLUMN_TITLE, title)
             put(NoteTable.COLUMN_DESCRIPTION, description)
@@ -29,7 +28,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
-    override fun getNoteById(id: Long): Result<Note?> {
+    fun getNoteById(id: Long): Result<Note?> {
         val whereClause = "${NoteTable.COLUMN_ID} = ?"
         val whereArgs = arrayOf(id.toString())
         try {
@@ -54,7 +53,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
-    override fun getAllNotes(offset: Int, limit: Int): Result<List<Note>> {
+    fun getAllNotes(offset: Int, limit: Int): Result<List<Note>> {
         try {
             val query = "SELECT * FROM ${NoteTable.TABLE_NAME} LIMIT $offset, $limit"
             dbHelper.readableDatabase.rawQuery(query, null).use { cursor ->
@@ -70,7 +69,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
-    override fun updateNote(modifiedData: Note): Result<Boolean> {
+    fun updateNote(modifiedData: Note): Result<Boolean> {
         val values = ContentValues().apply {
             put(NoteTable.COLUMN_TITLE, modifiedData.title)
             put(NoteTable.COLUMN_DESCRIPTION, modifiedData.description)
@@ -93,7 +92,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
-    override fun deleteNote(id: Long): Result<Boolean> {
+    fun deleteNote(id: Long): Result<Boolean> {
         val whereClause = "${NoteTable.COLUMN_ID} = ?"
         val whereArgs = arrayOf(id.toString())
 

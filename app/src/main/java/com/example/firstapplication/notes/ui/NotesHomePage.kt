@@ -19,7 +19,7 @@ import com.example.firstapplication.LifeCycleInfoAppCompactActivity
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityNotesHomePageBinding
 import com.example.firstapplication.notes.core.AbstractNoteRepo
-import com.example.firstapplication.notes.core.Result
+import cutomutils.Result
 import com.example.firstapplication.notes.core.entity.Note
 import com.example.firstapplication.notes.data.DatabaseHelper
 import com.example.firstapplication.notes.data.NoteRepoImpl
@@ -78,6 +78,7 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
                 mutableListOf()
             }
             is Result.Success<List<Note>> -> result.data.toMutableList()
+            Result.Loading -> TODO()
         }
     }
 
@@ -105,6 +106,8 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
                 else
                     showToast("Failed to delete note")
             }
+
+            Result.Loading -> TODO()
         }
     }
 
