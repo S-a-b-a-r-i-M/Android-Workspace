@@ -195,8 +195,8 @@ class NoteAdapter(
     }
 
     fun addNote(newNote: Note) {
-        notes.add(newNote) // Add to beginning for better UX
-        notifyItemInserted(notes.size - 1)
+        notes.add(0, newNote) // Add to beginning for better UX
+        notifyItemInserted(0)
 //        notifyDataSetChanged() // Will rebind all other only visible items
     }
 

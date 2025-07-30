@@ -22,7 +22,9 @@ class FragmentsActivity : StackInfoAppCompactActivity() {
             insets
         }
 
-        loadFragment(Fragment1()) // Initial fragment
+        if (savedInstanceState == null)
+            loadFragment(Fragment1()) // Initial fragment
+
         // Add On Click Listeners
         binding.fragmentBtn1.setOnClickListener {
             loadFragment(Fragment1())

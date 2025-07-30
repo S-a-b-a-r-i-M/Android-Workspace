@@ -13,6 +13,7 @@
 
     <TextView
         android:id="@+id/textView4"
+        style="@style/CustomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="172dp"
@@ -32,6 +33,7 @@
 
     <Button
         android:id="@+id/toastBtn2"
+        style="@style/CustomButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -50,6 +52,7 @@
 
     <Button
         android:id="@+id/toastBtn1"
+        style="@style/CustomButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
@@ -79,6 +82,7 @@
 
     <TextView
         android:id="@+id/textView5"
+        style="@style/CustomText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -95,6 +99,7 @@
 
     <Button
         android:id="@+id/saveNoteBtn"
+        style="@style/Theme.FirstApplication2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="502dp"

@@ -25,6 +25,7 @@ import com.example.firstapplication.architectures.mvvm.ui.activity.BooksActivity
 import com.example.firstapplication.databinding.ActivityHomePageBinding
 import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coffeeshop.GetStartedPage
+import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
 import cutomutils.customToast
@@ -203,6 +204,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Model-View-ViewModel...",
                 BooksActivity::class.java,
                 R.drawable.outline_book_2_24
+            ),
+            SingleActivityData(
+                "Coroutine Example 1",
+                "Coroutine example with counter and long progress...",
+                CounterActivity::class.java,
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView
