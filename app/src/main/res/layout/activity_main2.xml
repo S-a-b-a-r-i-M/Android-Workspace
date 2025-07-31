@@ -9,7 +9,7 @@
     android:paddingHorizontal="10dp"
     tools:context=".MainActivity2">
 
-    <!-- SENDING DATA TO CALLING ACTIVITY   -->
+<!-- SENDING DATA TO CALLING ACTIVITY   -->
     <TextView
         android:id="@+id/returnDataTitle"
         android:layout_width="wrap_content"
@@ -53,8 +53,7 @@
         app:layout_constraintStart_toEndOf="@+id/returnDataTV"
         app:layout_constraintTop_toBottomOf="@+id/returnDataTitle" />
 
-    <!-- ALERT DIALOG   -->
-
+<!-- ALERT DIALOG   -->
     <View
         android:id="@+id/separator1"
         android:layout_width="match_parent"
@@ -87,11 +86,18 @@
         android:id="@+id/alertDialogBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginEnd="140dp"
         android:text="Click Me"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alertDialogTitle"
+        app:layout_constraintEnd_toStartOf="@+id/alertDialogCustomBtn" />
+
+    <Button
+        android:id="@+id/alertDialogCustomBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/alertDialogBtn"
         app:layout_constraintTop_toBottomOf="@+id/alertDialogTitle" />
 
     <View
@@ -104,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/alertDialogBtn" />
 
-    <!-- IMPLICIT DIALOG   -->
+<!-- IMPLICIT INTENT  -->
     <TextView
         android:id="@+id/intentTitle"
         android:layout_width="wrap_content"
@@ -122,9 +128,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator2" />
 
-    <!-- NEXT & BACK   -->
-
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="5dp"
@@ -150,5 +155,19 @@
             android:text="Open Mail" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/separator3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <!-- CUSTOM ALERT DIALOG -->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

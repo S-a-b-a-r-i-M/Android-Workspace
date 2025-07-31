@@ -3,16 +3,22 @@ package com.example.firstapplication
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.net.toUri
+import com.example.firstapplication.databinding.SuccessDialogBinding
+import cutomutils.printLogInfo
+import androidx.core.graphics.drawable.toDrawable
 
 class MainActivity2 : StackInfoAppCompactActivity() {
     lateinit var returnDataTV: TextView
@@ -38,6 +44,10 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         val alertButton: Button = findViewById(R.id.alertDialogBtn)
         setAlertDialog(alertButton)
 
+        // CUSTOM ALERT DIALOG
+        val customAlertButton: Button = findViewById(R.id.alertDialogCustomBtn)
+        setCustomAlertDialog(customAlertButton)
+
       // IMPLICIT INTENT BUTTONS
         val openWebBtn: Button = findViewById(R.id.openWebBtn)
         setWebSearch(openWebBtn)
@@ -57,24 +67,58 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         }
     }
 
-    private fun setAlertDialog(button: Button) {
+    private fun setAlertDialog(button: Button)  {
         button.setOnClickListener {
-            val alertDialog = AlertDialog.Builder(this).apply {
-                setTitle("Alert Dialog Title")
-                setMessage("This is an example for alert dialog...")
-                setPositiveButton("Accept") { dialog, which ->
+            val alertDialog = AlertDialog.Builder(this)
+                .setTitle("Alert Dialog Title")
+                .setMessage("This is an example for alert dialog...")
+                .setPositiveButton("Accept") { dialog, which ->
                     cutomutils.customToast(this@MainActivity2, "positive button")
                 }
-                setNeutralButton("Remind Later") { dialog, which ->
+                .setNeutralButton("Remind Later") { dialog, which ->
                     cutomutils.customToast(this@MainActivity2, "neutral button")
                 }
-                setNegativeButton("Decline") { dialog, which ->
+                .setNegativeButton("Decline") { dialog, which ->
                     cutomutils.customToast(this@MainActivity2, "negative button")
                 }
-            }.create()
+                .create()
 
             alertDialog.show()
         }
+    }
+
+    private fun setCustomAlertDialog(button: Button) {
+        button.setOnClickListener {
+            showSuccessDialog()
+        }
+    }
+
+    private fun showSuccessDialog() {
+//        val successDialogParentLayout = findViewById<ConstraintLayout>(R.id.successDialogParentLayout)
+//        val view = LayoutInflater.from(this).inflate(R.layout.success_dialog, successDialogParentLayout, false)
+//        val alertDialog = AlertDialog.Builder(this)
+//            .setView(view)
+//            .create()
+
+//        view.findViewById<Button>(R.id.doneBtn).setOnClickListener {
+//            if (alertDialog.isShowing)
+//                alertDialog.dismiss()
+//        }
+
+        val successDialogBinding = SuccessDialogBinding.inflate(layoutInflater)
+        val alertDialog = AlertDialog.Builder(this)
+            .setView(successDialogBinding.root)
+            .create()
+
+        // SET THE PARENT LAYOUT BACKGROUND TRANSPARENT
+        alertDialog.window?.setBackgroundDrawable(0.toDrawable()) // 0 - TRANSPARENT
+
+        // CLICK LISTENER FOR DONE BUTTON
+        successDialogBinding.doneBtn.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        alertDialog.show()
     }
 
     // PERFORM WEB SEARCH
@@ -115,10 +159,4 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         outState.putString("returnData", returnDataTV.text.toString())
     }
 
-    override fun onRestoreInstanceState(
-        savedInstanceState: Bundle?,
-        persistentState: PersistableBundle?
-    ) {
-        super.onRestoreInstanceState(savedInstanceState, persistentState)
-    }
 }
