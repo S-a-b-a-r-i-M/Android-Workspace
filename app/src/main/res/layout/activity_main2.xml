@@ -163,11 +163,121 @@
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <!-- CUSTOM ALERT DIALOG -->
+<!-- CUSTOM RADIO BUTTONS -->
+    <RadioGroup
+        android:id="@+id/foodRGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/separator3"
+        app:layout_constraintEnd_toStartOf="@+id/domainRGroup">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/biriyaniRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="biriyani"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/pizzaRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="pizza"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/vegMealsRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Veg Meals"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/domainRGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/foodRGroup"
+        app:layout_constraintTop_toBottomOf="@+id/separator3">
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/govenmentRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="govenment"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/itRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="IT"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/privateRB"
+            style="@style/Widget.Material3.CompoundButton.CheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="private"
+            android:textSize="14sp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableStart="@drawable/radio_button_bg"
+            android:drawablePadding="8dp" />
+
+    </RadioGroup>
+
+    <View
+        android:id="@+id/separator4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodRGroup" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

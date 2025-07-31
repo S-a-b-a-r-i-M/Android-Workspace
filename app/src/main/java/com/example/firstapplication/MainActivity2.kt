@@ -19,13 +19,17 @@ import androidx.core.net.toUri
 import com.example.firstapplication.databinding.SuccessDialogBinding
 import cutomutils.printLogInfo
 import androidx.core.graphics.drawable.toDrawable
+import com.example.firstapplication.databinding.ActivityMain2Binding
 
 class MainActivity2 : StackInfoAppCompactActivity() {
+
+    private lateinit var binding: ActivityMain2Binding
     lateinit var returnDataTV: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge() // allows app to draw content behind system bars (status bar, navigation bar), enabling a modern, full-screen UI.
-        setContentView(R.layout.activity_main2)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             Log.i("MainActivity2", systemBars.toString())
@@ -44,7 +48,7 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         val alertButton: Button = findViewById(R.id.alertDialogBtn)
         setAlertDialog(alertButton)
 
-        // CUSTOM ALERT DIALOG
+      // CUSTOM ALERT DIALOG
         val customAlertButton: Button = findViewById(R.id.alertDialogCustomBtn)
         setCustomAlertDialog(customAlertButton)
 
@@ -53,6 +57,11 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         setWebSearch(openWebBtn)
         val openMailBtn: Button = findViewById(R.id.openMailBtn)
         setOpenMail(openMailBtn)
+
+      // CUSTOM RADIO BUTTON
+        binding.pizzaRB.setOnCheckedChangeListener { buttonView, isChecked ->
+            printLogInfo("Pizza Radio Button: $isChecked")
+        }
     }
 
     // SET RETURN DATA TO CALLED ACTIVITY
@@ -94,7 +103,8 @@ class MainActivity2 : StackInfoAppCompactActivity() {
     }
 
     private fun showSuccessDialog() {
-//        val successDialogParentLayout = findViewById<ConstraintLayout>(R.id.successDialogParentLayout)
+        val successDialogParentLayout = findViewById<ConstraintLayout>(R.id.successDialogParentLayout)
+        println("successDialogParentLayout: $successDialogParentLayout") // It's "null" because un-related layout file
 //        val view = LayoutInflater.from(this).inflate(R.layout.success_dialog, successDialogParentLayout, false)
 //        val alertDialog = AlertDialog.Builder(this)
 //            .setView(view)

@@ -169,7 +169,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity2"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.MyApplicationWithMaterial" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />

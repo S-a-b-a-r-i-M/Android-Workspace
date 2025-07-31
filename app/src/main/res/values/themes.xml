@@ -11,6 +11,9 @@
 <!--        <item name="android:textColor">@color/cambridge_blue</item>-->
     </style>
 
+    <style name="Theme.MyApplicationWithMaterial" parent="Theme.Material3.DayNight.NoActionBar">
+    </style>
+
     <style name="Theme.FirstApplication2" parent="Theme.AppCompat.DayNight">
         <item name="android:colorPrimary">@color/brown_orange</item>
         <item name="android:colorSecondary">@color/brown_orange</item>

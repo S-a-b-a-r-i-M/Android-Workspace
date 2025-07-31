@@ -168,13 +168,7 @@ class MainActivity : StackInfoAppCompactActivity() {
     }
 
   // TOGGLE
-    private fun toggleClick(toggleBtn: ToggleButton) {
-        val tv: TextView = findViewById(R.id.toggleStausTV)
-        tv.text = toggleBtn.text // For initial load
-        toggleBtn.setOnClickListener {
-            tv.text = toggleBtn.text
-        }
-    }
+    private fun toggleClick(toggleBtn: ToggleButton) {}
 
   // CHECK BOX
     private fun placeOrderUsingCheckBox(placeOrderBtn: Button) {
