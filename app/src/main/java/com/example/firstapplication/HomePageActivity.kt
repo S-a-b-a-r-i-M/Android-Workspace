@@ -26,6 +26,7 @@ import com.example.firstapplication.databinding.ActivityHomePageBinding
 import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coffeeshop.GetStartedPage
 import com.example.firstapplication.coroutine.CounterActivity
+import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
 import cutomutils.customToast
@@ -209,6 +210,12 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Coroutine Example 1",
                 "Coroutine example with counter and long progress...",
                 CounterActivity::class.java,
+            ),
+            SingleActivityData(
+                "Custom Toolbar",
+                "Created custom toolbar...",
+                CustomToolbar::class.java,
+                R.drawable.outline_toolbar_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

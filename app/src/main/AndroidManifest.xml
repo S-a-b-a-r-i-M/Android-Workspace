@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools" >
 
     <uses-feature
         android:name="android.hardware.telephony"
@@ -23,7 +23,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/iron_man_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FirstApplication">
+        android:theme="@style/Theme.FirstApplication" >
+        <activity
+            android:name=".custom.CustomToolbar"
+            android:exported="false"
+            android:theme="@style/Theme.CustomToolbar" />
         <activity
             android:name=".coroutine.CounterActivity"
             android:exported="false" />
@@ -77,7 +81,7 @@
             android:exported="false" />
         <activity
             android:name=".ImplicitIntentActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -123,7 +127,7 @@
             android:exported="false" />
         <activity
             android:name=".ResponsiveActivity"
-            android:exported="false">
+            android:exported="false" >
 
             <!-- NOTE: SAME LAUNCHER INTENT IN HomePageActivity: App will get cloned for each launcher -->
             <!-- <intent-filter> -->
@@ -134,7 +138,7 @@
         <activity
             android:name=".HomePageActivity"
             android:exported="true"
-            android:theme="@style/Theme.MySplashScreen">
+            android:theme="@style/Theme.MySplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

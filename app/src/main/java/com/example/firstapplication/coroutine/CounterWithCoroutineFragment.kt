@@ -68,7 +68,6 @@ class CounterWithCoroutineFragment : Fragment() {
         super.onDestroyView()
         _binding = null
         Log.i(TAG,"<------ onDestroyView ----->")
-
     }
 
     override fun onDestroy() {

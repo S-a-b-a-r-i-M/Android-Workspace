@@ -13,7 +13,10 @@ import com.example.firstapplication.databinding.FragmentCounterWithoutCoroutineB
 import cutomutils.customToast
 
 class CounterWithoutCoroutineFragment : Fragment(R.layout.fragment_counter_without_coroutine) {
-    private lateinit var binding: FragmentCounterWithoutCoroutineBinding
+    private var _binding: FragmentCounterWithoutCoroutineBinding? = null
+    private val binding
+        get() = _binding!!
+
     private lateinit var parentActivity: Context
 
     override fun onAttach(context: Context) {
@@ -27,12 +30,13 @@ class CounterWithoutCoroutineFragment : Fragment(R.layout.fragment_counter_witho
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCounterWithoutCoroutineBinding.inflate(layoutInflater)
-        return binding.root
+        return inflater.inflate(R.layout.fragment_counter_without_coroutine, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentCounterWithoutCoroutineBinding.bind(view)
+
         binding.counterTV.text = "0"
         binding.downloadSpinner.visibility = View.GONE
 
@@ -57,6 +61,12 @@ class CounterWithoutCoroutineFragment : Fragment(R.layout.fragment_counter_witho
                 binding.downloadSpinner.visibility = View.INVISIBLE
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+        Log.i(TAG,"<------ onDestroyView ----->")
     }
 
     companion object {

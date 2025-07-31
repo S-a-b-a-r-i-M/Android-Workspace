@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"> <!-- Doubt -->
+
+    <item
+        android:id="@+id/cameraMenu"
+        android:title="Camera"
+        android:icon="@drawable/outline_camera_enhance_24"
+        app:showAsAction="ifRoom" /> <!-- Doubt -->
+
+    <item
+        android:id="@+id/searchMenu"
+        android:title="Search"
+        android:icon="@drawable/outline_search_24"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/groupMenu"
+        android:title="New Group" />
+
+    <item
+        android:id="@+id/broadcastMenu"
+        android:title="Broadcast" />
+
+    <item
+        android:id="@+id/settingsMenu"
+        android:title="Settings" />
+
+</menu>
