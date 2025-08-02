@@ -106,7 +106,6 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
                 else
                     showToast("Failed to delete note")
             }
-
             Result.Loading -> TODO()
         }
     }

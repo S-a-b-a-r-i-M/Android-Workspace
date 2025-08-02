@@ -9,19 +9,25 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
+
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/light_gray"
-        app:tabSelectedTextColor="@color/blue"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+
+        android:background="@android:color/transparent"
+
         app:tabRippleColor="@color/light_blue"
         app:tabIndicatorColor="@color/blue"
-        app:tabIndicatorHeight="5dp"
+        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorFullWidth="false"
+
         app:tabMode="scrollable"
         app:tabGravity="start"
         app:tabPaddingStart="10dp"
         app:tabPaddingEnd="10dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
+        app:tabBackground="@drawable/border_background_blue"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

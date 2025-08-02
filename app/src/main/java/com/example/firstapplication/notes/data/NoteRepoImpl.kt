@@ -8,7 +8,6 @@ import com.example.firstapplication.notes.core.AbstractNoteRepo
 import com.example.firstapplication.notes.core.entity.Note
 import cutomutils.ErrorCode
 
-// TODO: FIX
 class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
 
     override fun createNote(title: String, description: String?): Result<Note> {
@@ -20,7 +19,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         try {
             val id = dbHelper.writableDatabase.insert(NoteTable.TABLE_NAME, null, values)
             return if (id != -1L)
-                Result.Success(Note(id, title, description))
+                getNoteById(id)
             else
                 Result.Error("Note Creation failed")
         } catch (exp: Exception) {
@@ -29,7 +28,7 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
-    override fun getNoteById(id: Long): Result<Note?> {
+    override fun getNoteById(id: Long): Result<Note> {
         val whereClause = "${NoteTable.COLUMN_ID} = ?"
         val whereArgs = arrayOf(id.toString())
         try {
@@ -122,5 +121,8 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
             cursor.getString(
                 cursor.getColumnIndexOrThrow(NoteTable.COLUMN_DESCRIPTION)
             ),
+            cursor.getLong(
+                cursor.getColumnIndexOrThrow(NoteTable.COLUMN_CREATED_AT)
+            )
         )
 }
