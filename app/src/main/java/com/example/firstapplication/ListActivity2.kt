@@ -35,7 +35,7 @@ class ListActivity2 : AppCompatActivity() {
     }
 
     fun setUpListView() {
-        var selectedListItemId = -1
+        var selectedListItemId = -1 // TODO: REFACTOR: Try to use previous selected position
         val listView: ListView = findViewById(R.id.listView)
         val adapter = object : ArrayAdapter<String>(this, 0, leaders) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {

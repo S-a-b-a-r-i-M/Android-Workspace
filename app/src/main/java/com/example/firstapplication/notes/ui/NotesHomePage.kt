@@ -3,18 +3,12 @@ package com.example.firstapplication.notes.ui
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapplication.LifeCycleInfoAppCompactActivity
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityNotesHomePageBinding
@@ -23,7 +17,7 @@ import cutomutils.Result
 import com.example.firstapplication.notes.core.entity.Note
 import com.example.firstapplication.notes.data.DatabaseHelper
 import com.example.firstapplication.notes.data.NoteRepoImpl
-import com.example.firstapplication.setGotoTargetPageForResult
+import cutomutils.setGotoTargetPageForResult
 
 class NotesHomePage : LifeCycleInfoAppCompactActivity() {
     private lateinit var binding: ActivityNotesHomePageBinding
@@ -70,14 +64,13 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
         )
     }
 
-    private fun loadNotesFromDB(): MutableList<Note> {
-        val result = noteRepo.getAllNotes(0, 100)
-        return when (result) {
+    private fun loadNotesFromDB(): List<Note> {
+        return when (val result = noteRepo.getAllNotes(0, 100)) {
             is Result.Error -> {
                 Log.e(TAG, "Failed to load notes: ${result.message}")
                 mutableListOf()
             }
-            is Result.Success<List<Note>> -> result.data.toMutableList()
+            is Result.Success<List<Note>> -> result.data
             Result.Loading -> TODO()
         }
     }
@@ -144,87 +137,5 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
 
     private fun showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(this, message, duration).show()
-    }
-}
-
-class NoteAdapter(
-    private var notes: MutableList<Note>,
-    private val onEditClick: (Note, Int) -> Unit,
-    private val onDeleteClick: (Long, Int) -> Unit
-) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
-
-    companion object {
-        private const val TAG = "NoteAdapter"
-    }
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val titleTV: TextView = itemView.findViewById(R.id.noteTitleTV)
-        val descriptionTV: TextView = itemView.findViewById(R.id.noteDescriptionTV)
-        val editBtn: ImageButton = itemView.findViewById(R.id.editIBtn)
-        val deleteBtn: ImageButton = itemView.findViewById(R.id.deleteIBtn)
-    }
-
-    private var createViewHolderInvokeCount = 0
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        Log.i(TAG, "onCreateViewHolder invoked count:${++createViewHolderInvokeCount} ")
-        val view = LayoutInflater.from(parent.context).inflate(
-            R.layout.single_note_item, parent, false
-        )
-        return ViewHolder(view)
-    }
-
-    private var bindViewHolderInvokeCount = 0
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        Log.i(TAG, "onBindViewHolder with position(${position}), invoked count: ${++bindViewHolderInvokeCount}")
-        val note = notes[position]
-        with(holder) {
-            titleTV.text = note.title
-            descriptionTV.text = note.description
-            editBtn.setOnClickListener { onEditClick(note, position) }
-            deleteBtn.setOnClickListener { onDeleteClick(note.id, position) }
-        }
-    }
-
-    override fun getItemCount() = notes.size
-
-    // Public methods for updating the adapter
-    fun refreshAllNotes(newNotes: MutableList<Note>) {
-        notes = newNotes
-        notifyDataSetChanged()
-    }
-
-    fun addNote(newNote: Note) {
-        notes.add(0, newNote) // Add to beginning for better UX
-        notifyItemInserted(0)
-//        notifyDataSetChanged() // Will rebind all other only visible items
-    }
-
-    fun isValidPosition(position: Int): Boolean {
-        if (0 > position || position >= notes.size ) {
-            Log.e(TAG, "position($position) is not valid")
-            return false
-        }
-
-        return true
-    }
-
-    fun updateNote(updatedNote: Note, position: Int) {
-        if (isValidPosition(position)) {
-            notes[position] = updatedNote
-            Log.d(TAG, "updateNote position($position)")
-            notifyItemChanged(position)
-        }
-    }
-
-    fun removeNote(position: Int) {
-        if (isValidPosition(position)) {
-            Log.d(TAG, "removeNote position($position)")
-            notes.removeAt(position)
-            notifyItemRemoved(position)
-            // Notify about range change to update positions
-            if (position < notes.size) // If the removed element is not last, then ->
-                notifyItemRangeChanged(position, notes.size - position)
-//                notifyItemRangeRemoved(position, notes.size - position) // TODO: Understand the difference
-        }
     }
 }

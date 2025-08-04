@@ -55,7 +55,12 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
 
     override fun getAllNotes(offset: Int, limit: Int): Result<List<Note>> {
         try {
-            val query = "SELECT * FROM ${NoteTable.TABLE_NAME} LIMIT $offset, $limit"
+            val query = """
+                SELECT * FROM ${NoteTable.TABLE_NAME} 
+                ORDER BY ${NoteTable.COLUMN_CREATED_AT}
+                LIMIT $offset, $limit
+            """.trimIndent()
+
             dbHelper.readableDatabase.rawQuery(query, null).use { cursor ->
                 val notes = mutableListOf<Note>()
                 while (cursor.moveToNext())

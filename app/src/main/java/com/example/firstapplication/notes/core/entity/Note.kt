@@ -7,6 +7,6 @@ import kotlinx.parcelize.Parcelize
 data class Note(
     val id: Long,
     val title: String,
-    val description: String?,
+    val description: String? = null,
     val createdAt: Long? = null
 ) : Parcelable

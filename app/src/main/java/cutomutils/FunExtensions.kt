@@ -1,12 +1,12 @@
-package com.example.firstapplication
+package cutomutils
 
 import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.widget.Button
 import androidx.activity.result.ActivityResultLauncher
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import com.example.firstapplication.notes.core.entity.Note
+import com.example.firstapplication.notes.ui.DisplayNoteData
 
 fun Button.setGotoPreviousPage() {
     setOnClickListener {
@@ -27,11 +27,4 @@ fun View.setGotoTargetPageForResult(activityResultLauncher: ActivityResultLaunch
         activityResultLauncher.launch(intent)
     }
 }
-
-//fun AppCompatActivity.loadFragment(containerViewId: Int, fragment: Fragment) {
-//    supportFragmentManager
-//        .beginTransaction()
-//        .replace(containerViewId, fragment)
-//        .commit()
-//}
 

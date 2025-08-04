@@ -7,7 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityGetStartedPageBinding
-import com.example.firstapplication.setGotoTargetPage
+import cutomutils.setGotoTargetPage
 
 class GetStartedPage : AppCompatActivity() {
     private lateinit var binding: ActivityGetStartedPageBinding

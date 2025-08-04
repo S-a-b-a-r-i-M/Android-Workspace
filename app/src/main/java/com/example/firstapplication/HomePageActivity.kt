@@ -33,6 +33,8 @@ import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
 import cutomutils.customToast
 import cutomutils.printLogInfo
+import cutomutils.setGotoTargetPage
+import cutomutils.setGotoTargetPageForResult
 
 class HomePageActivity : StackInfoAppCompactActivity() {
     private lateinit var binding: ActivityHomePageBinding

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.firstapplication.databinding.ActivityResponsiveBinding
+import cutomutils.setGotoTargetPage
 
 class ResponsiveActivity : AppCompatActivity() {
     private lateinit var binding: ActivityResponsiveBinding

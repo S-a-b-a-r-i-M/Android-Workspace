@@ -8,7 +8,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivitySignUpBinding
-import com.example.firstapplication.setGotoTargetPage
+import cutomutils.setGotoTargetPage
 import cutomutils.customToast
 
 class SignUpActivity : AppCompatActivity() {

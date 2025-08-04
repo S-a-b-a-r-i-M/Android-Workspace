@@ -4,7 +4,11 @@ import android.app.Activity
 import android.content.Context
 import android.util.Log
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import java.time.Instant
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.temporal.ChronoUnit
 
 fun customToast(context: Context, message: String, durationTime: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(context, message, durationTime).show()
@@ -16,4 +20,34 @@ fun customToast(context: Context, message: String, durationTime: Int = Toast.LEN
 
 fun Activity.printLogInfo(message: String) {
     Log.i(this.localClassName, message)
+}
+
+object DatePattern {
+    const val MONTH_DIGIT = "MM"
+    const val MONTH_SHORT_DIGIT = "M"
+    const val MONTH_SHORT_NAME = "MMM"
+    const val DATE = "d"
+    const val YEAR_DIGIT = "yyyy"
+    const val YEAR_SHORT_DIGIT = "yy"
+    const val HOURS_24 = "HH"
+    const val HOURS_12 = "hh"
+    const val MINUTES = "mm"
+    const val MERIDIEM = "a"
+}
+
+/** epochTime - 10 digit of epoch time(not 13) */
+fun formatEpochTime(epochTime: Long, format: String): String {
+    val formatter = DateTimeFormatter.ofPattern(format)
+    val instant = Instant.ofEpochSecond(epochTime)
+    return instant.atZone(ZoneId.systemDefault()).format(formatter)
+}
+
+fun isWithIn7Days(epochTime: Long): Boolean {
+    val givenDate = Instant.ofEpochSecond(epochTime)
+        .atZone(ZoneId.systemDefault())
+        .toLocalDate()
+    val currentDate = LocalDate.now()
+
+    val dateDifference = ChronoUnit.DAYS.between(givenDate, currentDate)
+    return dateDifference in 0..7
 }
