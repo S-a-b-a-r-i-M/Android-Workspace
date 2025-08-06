@@ -85,15 +85,7 @@
             android:exported="false" />
         <activity
             android:name=".ImplicitIntentActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:mimeType="image/*" />
-            </intent-filter>
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".notes.ui.CreateOrEditNotePage"
             android:exported="false"
@@ -125,10 +117,10 @@
             android:theme="@style/Theme.CoffeeShop" />
         <activity
             android:name=".BottomNavigationActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PersistDataWhileConfigChange"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ResponsiveActivity"
             android:exported="false">
@@ -142,7 +134,8 @@
         <activity
             android:name=".HomePageActivity"
             android:exported="true"
-            android:theme="@style/Theme.MySplashScreen">
+            android:theme="@style/Theme.MySplashScreen"
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -177,8 +170,8 @@
             android:theme="@style/Theme.MyApplicationWithMaterial" />
         <activity
             android:name=".MainActivity"
-            android:exported="false" />
-
+            android:exported="false"
+            android:launchMode="standard" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -24,10 +24,6 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
     private lateinit var noteRepo: AbstractNoteRepo
     private lateinit var noteAdapter: NoteAdapter
 
-    companion object {
-        private const val TAG = "ListOFNotesPage"
-    }
-
     val editNoteResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) {
@@ -103,10 +99,34 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
         }
     }
 
+    private fun handleNoteStatusChange(noteId: Long, position: Int, isCompleted: Boolean) {
+        Log.d(TAG, "Status button clicked for id: $noteId")
+        when(val result = noteRepo.updateNoteStatus(noteId, isCompleted)) {
+            is Result.Error -> {
+                Log.e(TAG, "Status change failed: ${result.message}")
+                showToast("Note staus not changed")
+            }
+            is Result.Success<Boolean> -> {
+                if (result.data) {
+                    noteAdapter.updateNoteStatus(position, isCompleted)
+                    showToast("Note Status changed successfully")
+                }
+                else
+                    showToast("Failed to change note status")
+            }
+            Result.Loading -> TODO()
+        }
+    }
+
     private fun setUpRecyclerView() {
         binding.notesRView.layoutManager = LinearLayoutManager(this)
         val notes = loadNotesFromDB()
-        noteAdapter = NoteAdapter(notes, ::handleEditNote, ::handleDeleteNote)
+        noteAdapter = NoteAdapter(
+            notes,
+            ::handleEditNote,
+            ::handleDeleteNote,
+            ::handleNoteStatusChange
+        )
         binding.notesRView.adapter = noteAdapter
     }
 
@@ -116,7 +136,7 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
         val position = data.getIntExtra(CreateOrEditNotePage.EXTRA_NOTE_POSITION, -1)
 
         if (updatedNote != null && position >= 0)
-            noteAdapter.updateNote(updatedNote, position)
+            noteAdapter.updateNote(updatedNote.title, updatedNote.description, position)
         else {
             Log.w(TAG, "handleCreateResult is refreshing whole notes...")
             // Fallback: refresh all notes if specific values not found
@@ -137,5 +157,9 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
 
     private fun showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
         Toast.makeText(this, message, duration).show()
+    }
+
+    companion object {
+        private const val TAG = "NotesHomePage"
     }
 }

@@ -11,5 +11,7 @@ interface AbstractNoteRepo {
 
     fun updateNote(modifiedData: Note): Result<Boolean>
 
+    fun updateNoteStatus(noteId: Long, isCompleted: Boolean): Result<Boolean>
+
     fun deleteNote(id: Long): Result<Boolean>
 }

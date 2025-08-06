@@ -1,29 +1,32 @@
  plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.android.application) // android.application plugin tells Gradle that you're building an Android app (not a library)
+    alias(libs.plugins.kotlin.android) // kotlin.android plugin enables Kotlin language support in your Android project.
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
 //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
 }
 
 android {
-    namespace = "com.example.firstapplication"
-    compileSdk = 36
+    namespace = "com.example.firstapplication" // acts like your app's unique identifier within the Android system - think of it as your app's address
+    compileSdk = 36  /* this tells Gradle which version of the Android SDK to use when compiling your code.
+    SDK 36 corresponds to a recent version of Android, giving you access to the latest APIs and features.
+    */
 
     defaultConfig {
         applicationId = "com.example.firstapplication"
         minSdk = 27
-        targetSdk = 36
+        targetSdk = 36 // For which Android SDK version the app was designed and tested for.
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // specifies which framework to use for running automated tests on actual devices or emulators.
     }
 
-    buildTypes {
+    buildTypes { // This defines different configurations for building your app
         release {
-            isMinifyEnabled = false
-            proguardFiles(
+            isMinifyEnabled = false /*  means the build process won't shrink your code or remove unused parts
+            (you'd typically enable this for production to reduce app size) */
+            proguardFiles( // specify configuration files for code obfuscation and optimization.
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
@@ -43,7 +46,10 @@ android {
 }
 
 dependencies {
-
+    // 1. implementation dependencies are included in your final app
+    // 2. testImplementation are only used for unit tests running on your development machine
+    // 3. androidTestImplementation are for tests running on Android devices
+    // 4. debugImplementation are only included in debug builds
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

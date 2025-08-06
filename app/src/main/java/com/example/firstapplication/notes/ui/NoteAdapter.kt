@@ -4,6 +4,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +16,8 @@ import cutomutils.formatEpochTime
 class NoteAdapter(
     notes: List<Note>,
     private val onEditClick: (Note, Int) -> Unit,
-    private val onDeleteClick: (Long, Int) -> Unit
+    private val onDeleteClick: (Long, Int) -> Unit,
+    private val onStatusChange: (Long, Int, Boolean) -> Unit,
 ) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val titleTV: TextView = itemView.findViewById(R.id.noteTitleTV)
@@ -24,6 +26,7 @@ class NoteAdapter(
         val editBtn: ImageButton = itemView.findViewById(R.id.editIBtn)
         val deleteBtn: ImageButton = itemView.findViewById(R.id.deleteIBtn)
         val separatorTV: TextView = itemView.findViewById(R.id.separatorTV)
+        val isCompletedCBox: CheckBox = itemView.findViewById(R.id.isCompletedCBox)
 
         /** 4 POINTS TO WRITE BINDING LOGIC INSIDE VIEW HOLDER CLASS
          * 1. Single Responsibility Principle (Adapter's job: Manage data and lifecycle, ViewHolder's job: Handle view binding and presentation).
@@ -32,8 +35,11 @@ class NoteAdapter(
          * 4. Reusability Across Adapters
          */
         fun bind(displayNote: DisplayNoteData, position: Int) {
-            titleTV.text = displayNote.note.title
-            descriptionTV.text = displayNote.note.description
+            val note = displayNote.note
+            titleTV.text = note.title
+            descriptionTV.text = note.description
+            isCompletedCBox.setOnCheckedChangeListener(null) // NOTE: Clearing the old onclick listener before isChecked change
+            isCompletedCBox.isChecked = note.isCompleted
             createdTimeTV.text = displayNote.createdAtTime ?: ""
 
             // Handle date separator
@@ -44,8 +50,13 @@ class NoteAdapter(
                 separatorTV.visibility = View.GONE
 
             // Set click listeners
-            editBtn.setOnClickListener { onEditClick(displayNote.note, position) }
+            editBtn.setOnClickListener { onEditClick(displayNote.note, position) } // Make optimized by using id
             deleteBtn.setOnClickListener { onDeleteClick(displayNote.note.id, position) }
+            isCompletedCBox.setOnCheckedChangeListener { _, isChecked ->
+                Log.i(TAG, "isCompletedCBox -> setOnCheckedChangeListener -> onStatusChange -> id: ${note.id} isChecked: $isChecked ")
+                onStatusChange(displayNote.note.id, position, isChecked)
+            }
+
         }
     }
 
@@ -70,6 +81,40 @@ class NoteAdapter(
         holder.bind(displayNotes[position], position)
     }
 
+    override fun onBindViewHolder(holder: ViewHolder, position: Int, payloads: List<Any?>) {
+        Log.i(TAG, "onBindViewHolder with payloads: $payloads")
+        val payload = payloads.getOrNull(0)
+        if (payload != null) {
+            val note = displayNotes[position].note
+
+            if (payload is String)
+                when(payload) {
+                    "title" -> {
+                        holder.titleTV.text = note.title
+                    }
+                    "description" -> {
+                        holder.descriptionTV.text = note.description
+                    }
+                }
+            else if (payload is List<*>)
+                payload.forEach {
+                    when(it) {
+                        "title" -> {
+                            holder.titleTV.text = note.title
+                        }
+                        "description" -> {
+                            holder.descriptionTV.text = note.description
+                        }
+                    }
+                }
+
+            holder.editBtn.setOnClickListener { onEditClick(note, position) }
+            return
+        }
+        // FULL BIND IF NO PAYLOADS
+        super.onBindViewHolder(holder, position, payloads)
+    }
+
     override fun getItemCount() = displayNotes.size
 
     // Public methods for updating the adapter
@@ -79,25 +124,31 @@ class NoteAdapter(
     }
 
     fun addNote(newNote: Note) {
-        displayNotes.add(getDisplayNote(newNote)) // Add to end
+        val displayNote = getDisplayNote(newNote).apply {
+            showDateSeparator = shouldShowSeparator(createdAtDate, displayNotes.size - 1)
+        }
+        displayNotes.add(displayNote) // Add to end
         notifyItemInserted(displayNotes.size - 1)
         // notifyDataSetChanged() // Will rebind all other only visible items
     }
 
-    private fun isValidPosition(position: Int): Boolean {
-        if (0 > position || position >= displayNotes.size ) {
-            Log.e(TAG, "position($position) is not valid")
-            return false
+    fun updateNote(title: String, description: String?, position: Int) {
+        if (isValidPosition(position)) {
+            val updatedNote = displayNotes[position].note.copy(
+                title = title,
+                description = description
+            )
+            displayNotes[position] = displayNotes[position].copy(note = updatedNote)
+            Log.d(TAG, "updateNote position($position)")
+            notifyItemChanged(position, listOf("title", "description"))
         }
-
-        return true
     }
 
-    fun updateNote(updatedNote: Note, position: Int) {
+    fun updateNoteStatus(position: Int, isCompleted: Boolean) {
         if (isValidPosition(position)) {
-            displayNotes[position] = getDisplayNote(updatedNote)
-            Log.d(TAG, "updateNote position($position)")
-            notifyItemChanged(position)
+            val note = displayNotes[position].note.copy(isCompleted = isCompleted)
+            displayNotes[position] = displayNotes[position].copy(note = note)
+            Log.d(TAG, "statusChanged position($position)")
         }
     }
 
@@ -143,8 +194,17 @@ class NoteAdapter(
     }
 
     private fun shouldShowSeparator(createdAtDate: String?, position: Int) = createdAtDate != null && (
-        position == 0 || createdAtDate != displayNotes[position-1].createdAtDate
+        position <= 0 || createdAtDate != displayNotes[position-1].createdAtDate
     )
+
+    private fun isValidPosition(position: Int): Boolean {
+        if (0 > position || position >= displayNotes.size ) {
+            Log.e(TAG, "position($position) is not valid")
+            return false
+        }
+
+        return true
+    }
 
     companion object {
         private const val TAG = "NoteAdapter"

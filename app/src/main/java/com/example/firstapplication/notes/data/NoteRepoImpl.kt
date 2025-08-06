@@ -97,6 +97,27 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
         }
     }
 
+    override fun updateNoteStatus(noteId: Long, isCompleted: Boolean): Result<Boolean> {
+        val values = ContentValues().apply {
+            put(NoteTable.COLUMN_IS_COMPLETED, isCompleted)
+        }
+        val whereClause = "${NoteTable.COLUMN_ID} = ?"
+        val whereArgs = arrayOf(noteId.toString())
+
+        try {
+            val rowsUpdated = dbHelper.writableDatabase.update(
+                NoteTable.TABLE_NAME,
+                values,
+                whereClause,
+                whereArgs
+            )
+            return Result.Success(rowsUpdated > 0)
+        } catch (exp: Exception) {
+            Log.e("NoteRepoImpl", "Error on update note status")
+            return Result.Error(exp.message.toString())
+        }
+    }
+
     override fun deleteNote(id: Long): Result<Boolean> {
         val whereClause = "${NoteTable.COLUMN_ID} = ?"
         val whereArgs = arrayOf(id.toString())
@@ -123,6 +144,9 @@ class NoteRepoImpl(private val dbHelper: DatabaseHelper) : AbstractNoteRepo {
             cursor.getString(
                 cursor.getColumnIndexOrThrow(NoteTable.COLUMN_TITLE)
             ),
+            cursor.getInt(
+                cursor.getColumnIndexOrThrow(NoteTable.COLUMN_IS_COMPLETED)
+            ) == 1, // INT TO BOOL CONVERSION
             cursor.getString(
                 cursor.getColumnIndexOrThrow(NoteTable.COLUMN_DESCRIPTION)
             ),
