@@ -29,6 +29,7 @@ import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coffeeshop.GetStartedPage
 import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
+import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
 import cutomutils.customToast
@@ -229,6 +230,12 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Bottom & Navigation drawer",
                 "Implemented both navigation drawers...",
                 AmazonNavigationActivity::class.java,
+            ),
+            SingleActivityData(
+                "News App",
+                "This is an complete news app...",
+                NewsMainActivity::class.java,
+                R.drawable.baseline_newspaper_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

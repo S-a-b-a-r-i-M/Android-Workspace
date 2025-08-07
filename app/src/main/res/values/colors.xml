@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="blue">#007BFF</color>
     <color name="green">#4fa853</color>
     <color name="light_blue">#87C1FF</color>
@@ -27,4 +27,9 @@
     <color name="medium_gray">#BFBFBD</color>
     <color name="very_light_gray">#E3E3E3</color>
     <color name="light_grayish">#F9F2ED</color>
+
+    <!-- NEWS APP -->
+    <color name="purple_news">#593c8f</color>
+    <color name="yellow">#ffc000</color>
+
 </resources>

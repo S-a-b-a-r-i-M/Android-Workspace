@@ -20,18 +20,20 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:menu="@menu/bottom_menu"
+        android:padding="0dp"
+
         android:background="@color/sunGlow"
+        app:menu="@menu/bottom_menu"
         app:itemRippleColor="@color/sunGlow"
         app:itemIconTint="@color/cambridge_blue"
         app:itemIconSize="30dp"
-        android:padding="0dp"
         app:itemPaddingBottom="0dp"
         app:itemTextColor="@color/white"
         app:itemTextAppearanceActiveBoldEnabled="true"
+        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:itemActiveIndicatorStyle="@style/App.Custom.Indicator" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NewsApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_news</item>
+        <item name="colorPrimaryVariant">@color/purple_news</item>
+        <item name="android:statusBarColor">@color/purple_news</item>
+        <item name="fontFamily">@font/poppins</item>
+    </style>
+
+<!--    NewsApp - Your app prefix
+        Custom - Indicates it's customized
+        Indicator - What component it styles   -->
+    <style name="NewsApp.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/yellow</item>
+    </style>
+
+    <style name="NewsApp.Headline1" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textColor">@color/purple_news</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>
