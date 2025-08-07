@@ -10,6 +10,7 @@
     <color name="blue">#007BFF</color>
     <color name="green">#4fa853</color>
     <color name="light_blue">#87C1FF</color>
+    <color name="very_light_blue">#D1DEED</color>
     <color name="light_gray">#D3D3D3</color>
     <color name="dark_gray">#4C4C4C</color>
     <color name="primary_button">#21A2D5</color>
