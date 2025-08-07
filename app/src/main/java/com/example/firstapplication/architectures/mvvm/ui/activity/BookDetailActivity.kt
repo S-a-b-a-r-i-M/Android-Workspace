@@ -44,7 +44,10 @@ class BookDetailActivity : AppCompatActivity() {
 
         observeViewModel()
         setupClickListeners()
-        loadBookData()
+        if (savedInstanceState == null) {
+            printLogInfo("<--- onCreate called first time ---> ")
+            loadBookData()
+        }
     }
 
     private fun loadBookData() {

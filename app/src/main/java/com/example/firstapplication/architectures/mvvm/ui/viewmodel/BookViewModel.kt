@@ -1,6 +1,5 @@
 package com.example.firstapplication.architectures.mvvm.ui.viewmodel
 
-import androidx.compose.ui.input.pointer.PointerId
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

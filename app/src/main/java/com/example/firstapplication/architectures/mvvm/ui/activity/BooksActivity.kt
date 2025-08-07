@@ -28,6 +28,7 @@ class BooksActivity : AppCompatActivity() {
     private lateinit var adapter: BookAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        println("<---- onCreate. next is OnStart ---->")
         super.onCreate(savedInstanceState)
         binding = ActivityBooksBinding.inflate(layoutInflater)
         enableEdgeToEdge()
@@ -48,12 +49,12 @@ class BooksActivity : AppCompatActivity() {
         setUpRecyclerView()
         setUpClickListeners()
         observeViewModel()
-    }
 
-    override fun onResume() {
-        super.onResume()
         // LOAD INITIAL DATA
-        bookViewModel.loadAllBooks()
+        if (savedInstanceState == null) {
+            printLogInfo("<--- onCreate called first time ---> ")
+            bookViewModel.loadAllBooks()
+        }
     }
 
     private fun setUpRecyclerView() {
@@ -72,6 +73,16 @@ class BooksActivity : AppCompatActivity() {
             val intent = Intent(this, AddBookActivity::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        println("<---- onStart. next is view model sends data to all observers ---->")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        println("<---- onResume. data received before  ---->")
     }
 
     /**
