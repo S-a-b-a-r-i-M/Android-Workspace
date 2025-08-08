@@ -21,8 +21,12 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:paddingBottom="0dp"
 
         android:background="@color/purple_news"
+        app:itemPaddingTop="4dp"
+        app:itemPaddingBottom="0dp"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/bottom_menu_newsapp"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"

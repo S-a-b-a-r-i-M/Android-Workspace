@@ -11,7 +11,7 @@
         Custom - Indicates it's customized
         Indicator - What component it styles   -->
     <style name="NewsApp.Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
-        <item name="android:color">@color/yellow</item>
+        <item name="android:color">@color/black</item>
     </style>
 
     <style name="NewsApp.Headline1" parent="TextAppearance.Material3.HeadlineMedium">
