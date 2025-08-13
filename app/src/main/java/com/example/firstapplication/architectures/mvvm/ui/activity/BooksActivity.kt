@@ -7,11 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firstapplication.R
-import com.example.firstapplication.architectures.mvvm.data.database.BookDatabaseHelper
+import com.example.firstapplication.architectures.mvvm.data.local.database.BookDatabaseHelper
 import com.example.firstapplication.architectures.mvvm.data.model.BookDaoImpl
 import com.example.firstapplication.architectures.mvvm.data.repo.BookRepositoryImpl
 import com.example.firstapplication.architectures.mvvm.ui.adapter.BookAdapter

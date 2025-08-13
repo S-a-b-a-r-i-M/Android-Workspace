@@ -1,6 +1,6 @@
 package com.example.firstapplication.architectures.mvc.model.db.tables
 
-import com.example.firstapplication.architectures.mvc.model.db.AbstractTable
+import com.example.firstapplication.architectures.mvc.model.db.tables.AbstractTable
 
 object NoteTable : AbstractTable {
     const val TABLE_NAME = "t_note"

@@ -47,7 +47,7 @@ class CounterActivity : AppCompatActivity() {
 class TabAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapter(fragmentActivity) {
     override fun createFragment(position: Int) = when(position) {
         0 -> CounterWithCoroutineFragment()
-//        1 -> CounterWithoutCoroutineFragment()
+//        1 -> CounterWithoutCoroutineFragment(
         else -> CounterWithoutCoroutineFragment()
     }
 

@@ -3,8 +3,8 @@ package com.example.firstapplication.architectures.mvvm.data.model
 import android.content.ContentValues
 import android.database.Cursor
 import android.util.Log
-import com.example.firstapplication.architectures.mvvm.data.database.BookDatabaseHelper
-import com.example.firstapplication.architectures.mvvm.data.database.BookTable
+import com.example.firstapplication.architectures.mvvm.data.local.database.BookDatabaseHelper
+import com.example.firstapplication.architectures.mvvm.data.local.database.BookTable
 import cutomutils.ErrorCode
 import cutomutils.Result
 

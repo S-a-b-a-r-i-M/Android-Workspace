@@ -23,16 +23,16 @@ class UserPresenter(private val userRepo: UserRepository) : UserContract.Present
 
             // Save user through repository
             userRepo.saveUser(name, email) { result ->
-                view?.showLoading(false)
+                it.showLoading(false)
                 when (result) {
                     is Result.Success -> {
-                        view?.showSuccess("User saved successfully")
+                        it.showSuccess("User saved successfully")
                     }
                     is Result.Error -> {
-                        view?.showError(result.message)
+                        it.showError(result.message)
                     }
                     else -> {
-                        view?.showError("Failed to save user")
+                        it.showError("Failed to save user")
                     }
                 }
             }

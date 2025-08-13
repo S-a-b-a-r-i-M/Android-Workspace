@@ -1,4 +1,4 @@
-package com.example.firstapplication.architectures.mvvm.data.database
+package com.example.firstapplication.architectures.mvvm.data.local.database
 
 object BookTable {
     const val TABLE_NAME = "t_book"

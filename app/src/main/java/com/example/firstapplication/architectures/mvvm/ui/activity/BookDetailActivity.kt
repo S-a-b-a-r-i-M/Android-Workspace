@@ -1,16 +1,14 @@
 package com.example.firstapplication.architectures.mvvm.ui.activity
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.Snackbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.firstapplication.R
-import com.example.firstapplication.architectures.mvvm.data.database.BookDatabaseHelper
+import com.example.firstapplication.architectures.mvvm.data.local.database.BookDatabaseHelper
 import com.example.firstapplication.architectures.mvvm.data.model.BookDaoImpl
 import com.example.firstapplication.architectures.mvvm.data.repo.BookRepositoryImpl
 import com.example.firstapplication.architectures.mvvm.ui.viewmodel.BookViewModel

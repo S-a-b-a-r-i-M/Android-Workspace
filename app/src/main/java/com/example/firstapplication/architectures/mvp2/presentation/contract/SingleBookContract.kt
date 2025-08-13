@@ -2,7 +2,7 @@ package com.example.firstapplication.architectures.mvp2.presentation.contract
 
 import com.example.firstapplication.architectures.mvp2.data.model.Book
 
-class SingleBookContract {
+interface SingleBookContract {
 
     interface View {
         fun showSelectedBook(book: Book)

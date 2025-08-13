@@ -1,4 +1,4 @@
-package com.example.firstapplication.architectures.mvvm.data.database
+package com.example.firstapplication.architectures.mvvm.data.local.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
