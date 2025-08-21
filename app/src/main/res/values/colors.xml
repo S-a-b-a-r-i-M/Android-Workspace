@@ -32,4 +32,8 @@
     <color name="purple_news">#593c8f</color>
     <color name="yellow">#ffc000</color>
 
+    <color name="stroke_color">#1CA6EF</color>
+    <color name="gray_dark">#616161</color>
+    <color name="gray_medium">#969393</color>
+
 </resources>

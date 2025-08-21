@@ -62,6 +62,11 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         binding.pizzaRB.setOnCheckedChangeListener { buttonView, isChecked ->
             printLogInfo("Pizza Radio Button: $isChecked")
         }
+
+      // BOTTOM SHEET
+       binding.btnOpenBottomSheet.setOnClickListener {
+           ItemListDialogFragment().show(supportFragmentManager, "bottom_sheet")
+       }
     }
 
     // SET RETURN DATA TO CALLED ACTIVITY

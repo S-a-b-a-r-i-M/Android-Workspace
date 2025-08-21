@@ -7,6 +7,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityNewsMainBinding
+import com.example.firstapplication.newsapp.api.RetrofitInstance
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.runBlocking
 
 // API KEY: 7cba23e9807e4b6393ec4483bb4fa57b
 
@@ -18,7 +23,6 @@ class NewsMainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_news_main)
         setWindowInset()
-
     }
 
     private fun setWindowInset() {

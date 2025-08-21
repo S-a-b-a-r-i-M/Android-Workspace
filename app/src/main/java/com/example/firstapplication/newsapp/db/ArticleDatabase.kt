@@ -14,7 +14,7 @@ import com.example.firstapplication.newsapp.models.Article
 @TypeConverters(Converters::class)
 abstract class ArticleDatabase: RoomDatabase() {
 
-    abstract fun getArticleDao(): ArticleDAO
+    abstract fun getArticleDao(): ArticleDAO // Who will implement this ?
 
     companion object {
         @Volatile
@@ -32,8 +32,5 @@ abstract class ArticleDatabase: RoomDatabase() {
                 INSTANCE = it
             }
         }
-
-
     }
-
 }

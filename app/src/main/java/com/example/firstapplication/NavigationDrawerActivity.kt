@@ -78,7 +78,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         toggle.syncState()
 
         // STEP 4: ON BACK PRESS METHOD
-//        onBackPressedDispatcher.addCallback(this, drawerCallBack)
+        onBackPressedDispatcher.addCallback(this, drawerCallBack)
 
         // STEP 5: DEFAULT FRAGMENT
         if (savedInstanceState == null) {

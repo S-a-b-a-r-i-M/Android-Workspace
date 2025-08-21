@@ -68,6 +68,9 @@ dependencies {
 
     // Room
     implementation("androidx.room:room-runtime:2.7.2")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.legacy.support.v4)
     annotationProcessor("androidx.room:room-compiler:2.7.2")
 
     // For image loading and caching

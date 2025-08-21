@@ -10,4 +10,27 @@
     <!-- COFFEE SHOP   -->
     <string name="started_page_h1_coffee">Fall in Love with Coffee in Blissful Delight!</string>
     <string name="started_page_des_coffee">Welcome to our majapa coffee corner, where every cup is a delightful for you.</string>
+    <string name="title_activity_in_built_bottom_nav">InBuiltBottomNav</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="shortlists">Shortlists</string>
+    <string name="home">Home</string>
+    <string name="listing">Listing</string>
+    <string name="profile">Profile</string>
+    <string name="property_name_hint">Building/Apartment/Society Name</string>
+    <string name="property_des_hint">Describe Property Description</string>
+    <string name="property_details">Property Details</string>
+    <string name="property_type">Type *</string>
+    <string name="bhk">BHK *</string>
+    <string name="furnishing_type">Furnishing Type</string>
+    <string name="pricing_details">Pricing Details</string>
+    <string name="monthly_rent">Monthly Rent</string>
+    <string name="fully_furnished">Fully Furnished</string>
+    <string name="semi_furnished">Semi Furnished</string>
+    <string name="un_furnished">UnFurnished</string>
+    <string name="monthly_maintenance">Monthly Maintenance</string>
+    <string name="location_details">Location Details</string>
+    <string name="city">City</string>
+    <string name="locality">Locality</string>
 </resources>

@@ -14,7 +14,7 @@ class DatabaseHelper private constructor(context: Context) : SQLiteOpenHelper(
         const val DATABASE_VERSION = 1
         var INSTANCE: DatabaseHelper? = null
 
-        fun getInstance(context: Context, ): DatabaseHelper {
+        fun getInstance(context: Context): DatabaseHelper {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: DatabaseHelper(context).also { INSTANCE = it }
             }

@@ -74,4 +74,25 @@
         <!-- Customize your theme here -->
     </style>
 
+    <style name="Widget.Custom.TextInputLayout.OutlinedBox" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/stroke_color</item>
+        <item name="hintTextColor">@color/gray_dark</item>
+        <item name="android:textColorHint">@color/gray_medium</item>
+        <item name="counterEnabled">true</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <style name="Widget.Custom.TextInputLayout.OutlinedBox.ExposedDropdownMenu" parent="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <item name="boxStrokeColor">@color/stroke_color</item>
+        <item name="hintTextColor">@color/gray_dark</item>
+        <item name="android:textColorHint">@color/gray_medium</item>
+        <item name="errorEnabled">true</item>
+    </style>
+
+    <style name="TextAppearance.Headline2" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="android:textColor">@color/blue</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
