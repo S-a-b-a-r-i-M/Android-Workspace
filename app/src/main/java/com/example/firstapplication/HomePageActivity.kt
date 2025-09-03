@@ -236,6 +236,24 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "This is an complete news app...",
                 NewsMainActivity::class.java,
                 R.drawable.baseline_newspaper_24
+            ),
+            SingleActivityData(
+                "Recycler With DiffUtil",
+                "Lists rendered by using recycler view and diff-util for update optimization...",
+                RecyclerWithDiffUtil::class.java,
+                R.drawable.outline_list_alt_24
+            ),
+            SingleActivityData(
+                "Collapse Toolbar",
+                "collapsive toolbar with property details design",
+                SinglePropertyActivity::class.java,
+                R.drawable.outline_list_alt_24
+            ),
+            SingleActivityData(
+                "Upload Images",
+                "Uploading multiple images",
+                UploadMultipleImagesActivity::class.java,
+                R.drawable.outline_animated_images_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

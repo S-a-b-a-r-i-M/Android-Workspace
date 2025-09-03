@@ -3,6 +3,7 @@ package com.example.firstapplication.newsapp.db
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -17,5 +18,5 @@ interface ArticleDAO {
     fun getAllArticles(): LiveData<List<Article>>
 
     @Delete
-    suspend fun deleteArticle(articleId: Int)
+    suspend fun deleteArticle(id: Article)
 }

@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"> <!-- Doubt -->
 
+<!--
+always = Force show on toolbar
+ifRoom = Show if space available
+never = Hide in overflow menu
+withText = Show icon + text
+collapseActionView = Expandable action-->
+
     <item
         android:id="@+id/cameraMenu"
         android:title="Camera"

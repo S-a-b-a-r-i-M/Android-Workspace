@@ -8,16 +8,8 @@ import android.view.ViewGroup
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.FragmentFavouritesBinding
 
-class FavouritesFragment : Fragment() {
+class FavouritesFragment : Fragment(R.layout.fragment_favourites) {
     private lateinit var binding: FragmentFavouritesBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favourites, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

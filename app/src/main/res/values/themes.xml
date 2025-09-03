@@ -22,7 +22,7 @@
         <item name="android:colorSecondary">@color/brown_orange</item>
         <item name="android:buttonStyle">@style/CustomButton2</item>
     </style>
-    
+
     <style name="CustomButton">
         <item name="android:textColor">@color/black</item>
         <item name="android:background">@color/brown_orange</item>
@@ -93,6 +93,12 @@
         <item name="android:textColor">@color/blue</item>
         <item name="android:textSize">22sp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+  <!-- Base application theme. -->
+    <style name="Base.Theme.ApplicationWithoutActionBar"
+        parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
 </resources>

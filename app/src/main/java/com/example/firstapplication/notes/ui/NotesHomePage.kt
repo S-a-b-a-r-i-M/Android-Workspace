@@ -9,6 +9,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapplication.LifeCycleInfoAppCompactActivity
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityNotesHomePageBinding
@@ -17,6 +18,7 @@ import cutomutils.Result
 import com.example.firstapplication.notes.core.entity.Note
 import com.example.firstapplication.notes.data.DatabaseHelper
 import com.example.firstapplication.notes.data.NoteRepoImpl
+import cutomutils.logInfo
 import cutomutils.setGotoTargetPageForResult
 
 class NotesHomePage : LifeCycleInfoAppCompactActivity() {
@@ -118,6 +120,29 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
         }
     }
 
+    val scrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+            logInfo("onScrollStateChanged -----> $newState")
+            super.onScrollStateChanged(recyclerView, newState)
+
+            val layoutManager = recyclerView.layoutManager as LinearLayoutManager
+
+            val firstElement = layoutManager.findFirstVisibleItemPosition()
+            val lastElement = layoutManager.findLastVisibleItemPosition() // layoutManager.findLastCompletelyVisibleItemPosition()
+            val childCount = layoutManager.childCount
+            val totalAdapterItemCount = recyclerView.adapter?.itemCount ?: layoutManager.itemCount
+            val totalLayoutItemCount = layoutManager.itemCount
+
+            logInfo("onScrollStateChanged --> totalAdapterItemCount: $totalAdapterItemCount, totalLayoutItemCount: $totalLayoutItemCount")
+            logInfo("onScrollStateChanged --> firstElement: $firstElement, lastElement:$lastElement, childCount: $childCount")
+        }
+
+        override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+            logInfo("onScrolled -----> dx:$dx, dy:$dy")
+            super.onScrolled(recyclerView, dx, dy)
+        }
+    }
+
     private fun setUpRecyclerView() {
         binding.notesRView.layoutManager = LinearLayoutManager(this)
         val notes = loadNotesFromDB()
@@ -128,6 +153,7 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
             ::handleNoteStatusChange
         )
         binding.notesRView.adapter = noteAdapter
+        binding.notesRView.addOnScrollListener(scrollListener)
     }
 
     private fun handleEditResult(data: Intent) {

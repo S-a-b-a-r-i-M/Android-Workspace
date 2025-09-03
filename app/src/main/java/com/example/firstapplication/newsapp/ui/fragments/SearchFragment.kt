@@ -8,16 +8,8 @@ import android.view.ViewGroup
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.FragmentSearchBinding
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

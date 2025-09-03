@@ -3,7 +3,8 @@
     alias(libs.plugins.kotlin.android) // kotlin.android plugin enables Kotlin language support in your Android project.
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
-//    alias(libs.plugins.kotlin.parcelize) // This is Not Working
+    //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
+    kotlin("kapt")
 }
 
 android {
@@ -67,11 +68,12 @@ dependencies {
     implementation(libs.androidx.viewpager2)
 
     // Room
-    implementation("androidx.room:room-runtime:2.7.2")
+    implementation(libs.androidx.room.runtime)
+//    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
+    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.legacy.support.v4)
-    annotationProcessor("androidx.room:room-compiler:2.7.2")
 
     // For image loading and caching
     implementation("com.github.bumptech.glide:glide:4.15.1")

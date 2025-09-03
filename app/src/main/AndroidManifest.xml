@@ -26,9 +26,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
-            android:name=".InBuiltBottomNav"
+            android:name=".MaterialSearchBarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UploadMultipleImagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SinglePropertyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecyclerWithDiffUtil"
             android:exported="false"
-            android:label="@string/title_activity_in_built_bottom_nav" />
+            android:theme="@style/Theme.ApplicationWithoutActionBar" />
         <activity
             android:name=".newsapp.ui.NewsMainActivity"
             android:documentLaunchMode="always"

@@ -20,8 +20,8 @@ class NewsRepo(context: Context) {
     suspend fun addArticleToFavourites(article: Article) = db.getArticleDao().upsert(article)
 
     // Get Favourites
-    suspend fun getFavourite() = db.getArticleDao().getAllArticles()
+    fun getFavourites() = db.getArticleDao().getAllArticles()
 
     // Delete Article
-    suspend fun removeFromFavourites(articleId: Int) = db.getArticleDao().deleteArticle(articleId)
+//    suspend fun removeFromFavourites(articleId: Int) = db.getArticleDao().deleteArticle(articleId)
 }

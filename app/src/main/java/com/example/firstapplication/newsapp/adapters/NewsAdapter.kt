@@ -11,10 +11,7 @@ import com.example.firstapplication.R
 import com.example.firstapplication.newsapp.models.Article
 
 // TODO: Use Diff-Util and AsyncListDiffer
-class NewsAdapter(
-    val articles: List<Article>,
-    val onClick: (Article) -> Unit = {}
-) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(val onClick: (Article) -> Unit = {}) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val sourceTV: TextView = itemView.findViewById(R.id.articleSourceTV)
@@ -39,6 +36,8 @@ class NewsAdapter(
         }
     }
 
+    private var articles: MutableList<Article> = mutableListOf()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
             R.layout.news_item, parent, false
@@ -51,4 +50,9 @@ class NewsAdapter(
     }
 
     override fun getItemCount() = articles.size
+
+    fun setArticles(newArticles: List<Article>) {
+        articles = newArticles.toMutableList()
+        notifyDataSetChanged()
+    }
 }

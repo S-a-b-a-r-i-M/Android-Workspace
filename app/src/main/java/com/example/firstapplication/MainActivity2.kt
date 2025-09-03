@@ -3,11 +3,9 @@ package com.example.firstapplication
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -64,9 +62,9 @@ class MainActivity2 : StackInfoAppCompactActivity() {
         }
 
       // BOTTOM SHEET
-       binding.btnOpenBottomSheet.setOnClickListener {
-           ItemListDialogFragment().show(supportFragmentManager, "bottom_sheet")
-       }
+//       binding.btnOpenBottomSheet.setOnClickListener {
+//           ItemListDialogFragment().show(supportFragmentManager, "bottom_sheet")
+//       }
     }
 
     // SET RETURN DATA TO CALLED ACTIVITY

@@ -22,6 +22,27 @@ fun Activity.printLogInfo(message: String) {
     Log.i(this.localClassName, message)
 }
 
+val Any.simpleClassName: String
+    get() = this::class.java.simpleName
+
+fun getOnlyClassName(classWithPackage: String) = classWithPackage.split(".").last()
+
+fun Any.logInfo(message: String, throwable: Throwable? = null) {
+    Log.i(simpleClassName, message, throwable)
+}
+
+fun Any.logDebug(message: String, throwable: Throwable? = null) {
+    Log.d(simpleClassName, message, throwable)
+}
+
+fun Any.logWarning(message: String, throwable: Throwable? = null) {
+    Log.w(simpleClassName, message, throwable)
+}
+
+fun Any.logError(message: String, throwable: Throwable? = null) {
+    Log.e(simpleClassName, message, throwable)
+}
+
 object DatePattern {
     const val MONTH_DIGIT = "MM"
     const val MONTH_SHORT_DIGIT = "M"
