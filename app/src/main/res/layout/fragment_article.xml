@@ -19,6 +19,7 @@
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
 
+        android:contentDescription="@string/toggle_fav"
         android:src="@drawable/baseline_favorite_filled"
         app:fabSize="normal"
 

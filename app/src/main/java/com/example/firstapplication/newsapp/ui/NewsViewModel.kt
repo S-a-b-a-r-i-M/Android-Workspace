@@ -33,7 +33,7 @@ class NewsViewModel(app: Application, val repo: NewsRepo) : AndroidViewModel(app
     var newSearchQuery: String? = null
 
     // Currently Opened Article
-    var article: Article? = null
+    var currentArticle: Article? = null
 
     // getHeadlines
     fun getHeadlines(countryCode: String) {

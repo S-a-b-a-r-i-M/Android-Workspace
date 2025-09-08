@@ -66,9 +66,12 @@ class NewsMainActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
+    fun loadFragment(fragment: Fragment, toBackStack: Boolean = false) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragmentContainer, fragment)
+            if (toBackStack) addToBackStack(null)
+            commit()
+        }
+
     }
 }

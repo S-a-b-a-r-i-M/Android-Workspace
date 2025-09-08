@@ -17,7 +17,6 @@ import com.example.firstapplication.newsapp.models.NewsResponse
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newsapp.ui.NewsViewModel
 import com.example.firstapplication.newsapp.util.Resource
-import cutomutils.logDebug
 import cutomutils.logInfo
 import cutomutils.logWarning
 
@@ -29,7 +28,6 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headline) {
     private lateinit var errorTextView: TextView
     var isError = false
     var isLoading = false
-    val isLastPage = false
     var isScrolling = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -109,17 +107,15 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headline) {
             logInfo("onScrollStateChanged -----> $newState")
             super.onScrollStateChanged(recyclerView, newState)
 
-            val layoutManger = recyclerView.layoutManager as LinearLayoutManager
-
             if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
                 isScrolling = true
                 return // No need to fetch new items while scrolling
             }
-            else if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                isScrolling = false
 
-//            if (isLoading || !isMore) return
+            isScrolling = false
+            // if (isLoading || !isMore) return
 
+            val layoutManger = recyclerView.layoutManager as LinearLayoutManager
             val lastVisibleItemPosition = layoutManger.findLastCompletelyVisibleItemPosition() // index
             val totalItemCount = recyclerView.adapter?.itemCount ?: run {
                 logWarning("totalItemCount is not accessible")
@@ -127,7 +123,7 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headline) {
             }
             val shouldPaginate = (lastVisibleItemPosition + 1) >= totalItemCount
             if (shouldPaginate) {
-                logInfo("<----------- getHeadlines from onScrollStatechanged ---------->")
+                logInfo("<----------- getHeadlines from onScroll State changed ---------->")
                 newsViewModel.getHeadlines("us")
             }
         }
@@ -139,7 +135,13 @@ class HeadlinesFragment : Fragment(R.layout.fragment_headline) {
     }
 
     private fun onItemClick(article: Article) {
-        logDebug("onItemClick is clicked $article")
+        val destinationFragment = ArticleFragment()
+        destinationFragment.arguments = Bundle().apply {
+            putSerializable("article", article)
+        }
+        // or
+        newsViewModel.currentArticle = article
+        (requireActivity() as NewsMainActivity).loadFragment(destinationFragment, true)
     }
 
     private fun setupRecyclerView() {
