@@ -46,6 +46,7 @@ class NewsMainActivity : AppCompatActivity() {
         val repo = NewsRepo(this)
         val factory = NewsViewModelProviderFactory(application, repo)
         viewModel = ViewModelProvider(this, factory).get(NewsViewModel::class.java)
+        println("viewModel: $viewModel")
     }
 
     private fun setupUI() {

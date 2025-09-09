@@ -17,9 +17,9 @@ import com.google.android.material.navigation.NavigationView
 import cutomutils.customToast
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var binding: ActivityNavigationDrawerBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
-    private lateinit var binding: ActivityNavigationDrawerBinding
 
     // Register back press callback
     private val drawerCallBack = object : OnBackPressedCallback(true) {

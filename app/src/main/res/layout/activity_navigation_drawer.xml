@@ -39,7 +39,7 @@
         app:menu="@menu/nav_menu"
         app:itemIconTint="@color/blue"
         app:itemTextColor="@color/blue"
-        app:itemVerticalPadding="5dp"
+        app:itemVerticalPadding="8dp"
         app:itemIconPadding="20dp" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
