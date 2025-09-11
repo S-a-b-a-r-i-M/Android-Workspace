@@ -26,6 +26,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
+            android:name=".PracticeActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".PopUpActivity"
+            android:exported="false" />
+        <activity
             android:name=".MaterialSearchBarActivity"
             android:exported="false" />
         <activity

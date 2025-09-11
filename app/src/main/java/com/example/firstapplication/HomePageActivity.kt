@@ -92,6 +92,12 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 R.drawable.outline_android_24,
                 activityResultLauncher
             ),SingleActivityData(
+                "Basic Views - 3",
+                "examples...",
+                PracticeActivity3::class.java,
+                R.drawable.outline_android_24,
+                activityResultLauncher
+            ),SingleActivityData(
                 "Scrollable List",
                 "Vertically scrollable list example...",
                 ListActivity::class.java,

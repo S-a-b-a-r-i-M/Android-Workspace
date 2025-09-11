@@ -161,13 +161,5 @@ class RVAdapter(val dataList: List<RVData>) : RecyclerView.Adapter<RecyclerView.
         }
     }
 
-    override fun onBindViewHolder(
-        holder: RecyclerView.ViewHolder,
-        position: Int,
-        payloads: List<Any?>
-    ) {
-        super.onBindViewHolder(holder, position, payloads)
-    }
-
     override fun getItemCount() = dataList.size
 }

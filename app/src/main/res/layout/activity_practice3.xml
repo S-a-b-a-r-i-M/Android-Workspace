@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:gravity="center"
+    android:layout_margin="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PracticeActivity3">
+
+    <com.example.firstapplication.CounterView
+        android:id="@+id/counterView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:label="bedrooms"
+        app:minCount="0"
+        app:maxCount="800"
+        app:labelSize="18sp"
+        app:counterSize="20dp"
+        app:iconWidth="30dp"
+        app:iconHeight="30dp" />
+
+</LinearLayout>
