@@ -4,22 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:gravity="center"
+    android:orientation="vertical"
     android:layout_margin="16dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PracticeActivity3">
 
-    <com.example.firstapplication.CounterView
-        android:id="@+id/counterView"
+    <com.example.firstapplication.custom.InlineEditView
+        android:id="@+id/iEditViewName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        app:label="Name: " />
+
+    <com.example.firstapplication.CounterView
+        android:id="@+id/bedroomsCounter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         app:label="bedrooms"
-        app:minCount="0"
-        app:maxCount="800"
-        app:labelSize="18sp"
-        app:counterSize="20dp"
-        app:iconWidth="30dp"
-        app:iconHeight="30dp" />
+        app:maxCount="5" />
 
 </LinearLayout>

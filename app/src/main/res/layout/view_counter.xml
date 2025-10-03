@@ -16,15 +16,14 @@
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:src="@drawable/outline_remove_24"
-        android:backgroundTint="@color/gray_dark"
         app:tint="@color/gray_dark"
-        android:background="?attr/selectableItemBackgroundBorderless" />
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="decrement" />
 
     <TextView
         android:id="@+id/tvCount"
-        android:layout_width="wrap_content"
+        android:layout_width="30dp"
         android:layout_height="match_parent"
-        android:minWidth="24dp"
         android:gravity="center"
         android:text="0"
         android:layout_marginHorizontal="5dp" />
@@ -34,6 +33,7 @@
         android:layout_width="26dp"
         android:layout_height="26dp"
         android:src="@drawable/outline_add_24"
+        app:tint="@color/gray_dark"
         android:background="?attr/selectableItemBackgroundBorderless"
-        app:tint="@color/gray_dark" />
+        android:contentDescription="increment" />
 </merge>
