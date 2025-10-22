@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Register This Shortcuts Into AndroidManifest -> Launcher Activity -> meta-data -->
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+     <shortcut
+         android:shortcutId="NewsApp"
+         android:enabled="true"
+         android:icon="@drawable/baseline_newspaper_24"
+         android:shortcutShortLabel="@string/news_app">
+         <intent
+             android:action="android.intent.action.VIEW"
+             android:targetPackage="com.example.firstapplication"
+             android:targetClass="com.example.firstapplication.newsapp.ui.NewsMainActivity">
+             <extra android:name="title" android:value="newsApp" />
+         </intent>
+     </shortcut>
+</shortcuts>

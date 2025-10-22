@@ -1,5 +1,6 @@
 package com.example.firstapplication.newsapp.ui
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,6 +33,10 @@ class NewsMainActivity : AppCompatActivity() {
 
         if (savedInstanceState == null)
             loadFragment(HeadlinesFragment())
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
     }
 
     private fun setWindowInset() {

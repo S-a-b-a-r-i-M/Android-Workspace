@@ -1,7 +1,9 @@
 package com.example.firstapplication
 
 import android.app.ActivityManager
+import android.app.ComponentCaller
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
@@ -47,6 +49,8 @@ class MainActivity : StackInfoAppCompactActivity() {
         applicationContext
         this
         baseContext
+
+        val ini = intent.getStringExtra("title")
 
       // TOAST
         val btn: View = findViewById(R.id.toastBtn2)

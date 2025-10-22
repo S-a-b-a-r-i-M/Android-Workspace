@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapplication.LifeCycleInfoAppCompactActivity
@@ -49,6 +50,8 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
             insets
         }
 
+        val shortcutId = intent.getStringExtra("title")
+
         // INITIALIZE
         noteRepo = NoteRepoImpl(DatabaseHelper.getInstance(this))
 
@@ -60,6 +63,11 @@ class NotesHomePage : LifeCycleInfoAppCompactActivity() {
             createNoteResultLauncher,
             CreateOrEditNotePage::class.java
         )
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        println()
     }
 
     private fun loadNotesFromDB(): List<Note> {

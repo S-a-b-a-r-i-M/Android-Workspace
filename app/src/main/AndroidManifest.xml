@@ -26,6 +26,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
+            android:name=".PracticeJavaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.ApplicationWithoutActionBar" />
+        <activity
             android:name=".PracticeActivity3"
             android:exported="false" />
         <activity
@@ -167,6 +171,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
         <activity
             android:name=".NavigationDrawerActivity"

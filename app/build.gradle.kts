@@ -69,6 +69,8 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 //    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.navigation.fragment.ktx)

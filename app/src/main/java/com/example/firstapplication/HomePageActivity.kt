@@ -15,7 +15,12 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
+import androidx.annotation.DrawableRes
 import androidx.appcompat.widget.SearchView
+import androidx.core.content.pm.ShortcutInfoCompat
+import androidx.core.content.pm.ShortcutManagerCompat
+import androidx.core.graphics.drawable.IconCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -32,14 +37,15 @@ import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
+import com.example.firstapplication.viewmodels.MyViewModel
 import cutomutils.customToast
+import cutomutils.logDebug
 import cutomutils.printLogInfo
-import cutomutils.setGotoTargetPage
-import cutomutils.setGotoTargetPageForResult
 
 class HomePageActivity : StackInfoAppCompactActivity() {
     private lateinit var binding: ActivityHomePageBinding
     private lateinit var adapter: HomePageAdapter
+    private val myViewModel: MyViewModel by viewModels()
 
     private val activityResultLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -92,7 +98,13 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 R.drawable.outline_android_24,
                 activityResultLauncher
             ),SingleActivityData(
-                "Basic Views - 3",
+                "Basic Views(Java) - 3",
+                "Alert Dialog, Intent examples...",
+                PracticeJavaActivity::class.java,
+                R.drawable.outline_android_24,
+                activityResultLauncher
+            ),SingleActivityData(
+                "Basic Views - 4",
                 "examples...",
                 PracticeActivity3::class.java,
                 R.drawable.outline_android_24,
@@ -270,42 +282,64 @@ class HomePageActivity : StackInfoAppCompactActivity() {
         else
             GridLayoutManager(this, 2)
 
-        adapter = HomePageAdapter(activityDataList).also { topicsRecyclerView.adapter = it }
+        adapter = HomePageAdapter(activityDataList, ::addDynamicShortCut).also { topicsRecyclerView.adapter = it }
+
+        myViewModel.counterLV.observe(this) {
+            Log.d(TAG, "<------ Count observed $it ------->")
+        }
     }
 
-    // Life Cycle
-    override fun onStart() {
-        printLogInfo("onStart.....-------------->")
-        val currentOrientation = resources.configuration.orientation
-        printLogInfo(
-            "orientation : ${if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) "Portrait" else "Landscape"}"
-        )
-        super.onStart()
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
     }
 
-    override fun onResume() {
-        printLogInfo("onResume.....-------------->")
-        super.onResume()
+    private fun addPinnedShortcut() {
+        // If needed then see -> https://www.youtube.com/watch?v=nXy1Zhf54fg&list=WL&index=2
     }
 
-    override fun onPause() {
-        printLogInfo("onPause.....-------------->")
-        super.onPause()
-    }
+    /* applicationContext vs this(activityContext)
+    Shortcut lives in Android system, not in your app's memory
+    Context is only used during creation to access resources
+    After pushDynamicShortcut(), context doesn't matter
+     */
+    private fun addDynamicShortCut(activityData: SingleActivityData) {
+        val shortcutId = activityData.targetActivityClass.toString()
+        val shortcuts = ShortcutManagerCompat.getDynamicShortcuts(applicationContext)
+        // Check if already added
+        shortcuts.find { it.id == shortcutId }?.let {
+            logDebug("Shortcut already exists")
+            return
+        }
 
-    override fun onStop() {
-        printLogInfo("onStop.....-------------->")
-        super.onStop()
-    }
+        // Remove if more than 2 past dynamic shortcuts
+        if (shortcuts.size == 2) {
+            // val shortcut = shortcuts.maxBy { it.lastChangedTimestamp } ?: shortcuts[0]
+            val shortcut = if(shortcuts[0].lastChangedTimestamp > shortcuts[1].lastChangedTimestamp)
+                shortcuts[0]
+            else
+                shortcuts[1]
+            ShortcutManagerCompat.removeDynamicShortcuts(
+                applicationContext,
+                listOf(shortcut.id) // Remove Old Shortcut(Always have recent lastChangedTime)
+            )
+        }
+        // Add New ShortCut
+        val shortcut = ShortcutInfoCompat.Builder(applicationContext, shortcutId)
+            .setShortLabel(activityData.title)
+            .setLongLabel(activityData.description) // Not Visible
+            .setIcon(IconCompat.createWithResource(applicationContext, activityData.iconId))
+            .setIntent(
+                // Even if the NotesHomePage is active clicking on shortcut opening it again newly
+                Intent(applicationContext, activityData.targetActivityClass).apply {
+                    action = Intent.ACTION_VIEW
+                    addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+                    putExtra("title", activityData.title)
+                }
+            )
+            .build()
 
-    override fun onRestart() {
-        printLogInfo("onRestart.....-------------->")
-        super.onRestart()
-    }
-
-    override fun onDestroy() {
-        printLogInfo("onDestroy.....-------------->")
-        super.onDestroy()
+        // If i push the same short cut again and again no update will happen
+        ShortcutManagerCompat.pushDynamicShortcut(applicationContext, shortcut)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -335,6 +369,44 @@ class HomePageActivity : StackInfoAppCompactActivity() {
         return true
     }
 
+    // Life Cycle
+    override fun onStart() {
+        printLogInfo("onStart.....-------------->")
+        val currentOrientation = resources.configuration.orientation
+        printLogInfo(
+            "orientation : ${if (currentOrientation == Configuration.ORIENTATION_PORTRAIT) "Portrait" else "Landscape"}"
+        )
+        super.onStart()
+    }
+
+    override fun onResume() {
+        printLogInfo("onResume.....-------------->")
+        super.onResume()
+    }
+
+    override fun onPause() {
+        printLogInfo("onPause.....-------------->")
+        super.onPause()
+    }
+
+    override fun onStop() {
+        printLogInfo("onStop.....-------------->")
+        super.onStop()
+        if (myViewModel._counterLV.value == 0) {
+            myViewModel._counterLV.value = 10
+        }
+    }
+
+    override fun onRestart() {
+        printLogInfo("onRestart.....-------------->")
+        super.onRestart()
+    }
+
+    override fun onDestroy() {
+        printLogInfo("onDestroy.....-------------->")
+        super.onDestroy()
+    }
+
     // SAVING & RESTORING DATA ON CONFIG CHANGES
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -360,12 +432,14 @@ data class SingleActivityData(
     val title: String,
     val description: String,
     val targetActivityClass: Class<out Activity>,
-    val iconId: Int = R.drawable.outline_android_24,
+    @DrawableRes val iconId: Int = R.drawable.outline_android_24,
     val activityResultLauncher: ActivityResultLauncher<Intent>? = null
 )
 
-class HomePageAdapter(var dataList: List<SingleActivityData>) : RecyclerView.Adapter<HomePageAdapter.ViewHolder>() {
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class HomePageAdapter(var dataList: List<SingleActivityData>,val onClick: (SingleActivityData) -> Unit)
+    : RecyclerView.Adapter<HomePageAdapter.ViewHolder>()
+{
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val iconView: ImageView = itemView.findViewById(R.id.iconView)
         private val titleTV: TextView = itemView.findViewById(R.id.titleTV)
         private val descriptionTV: TextView = itemView.findViewById(R.id.descriptionTV)
@@ -375,12 +449,14 @@ class HomePageAdapter(var dataList: List<SingleActivityData>) : RecyclerView.Ada
             iconView.setImageResource(data.iconId)
             titleTV.text = data.title
             descriptionTV.text = data.description
-            if (data.activityResultLauncher != null)
-                openActivityButton.setGotoTargetPageForResult(
-                    data.activityResultLauncher, data.targetActivityClass
-                )
-            else
-                openActivityButton.setGotoTargetPage(data.targetActivityClass)
+            openActivityButton.setOnClickListener {
+                onClick(data)
+                val intent = Intent(itemView.context, data.targetActivityClass)
+                if (data.activityResultLauncher != null)
+                    data.activityResultLauncher.launch(intent)
+                else
+                    itemView.context.startActivity(intent)
+            }
         }
     }
 

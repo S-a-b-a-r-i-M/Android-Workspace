@@ -14,9 +14,8 @@ class MyViewModel : ViewModel() {
     }
 
     // WITH LIVE DATA
-    private var _counterLV = MutableLiveData<Int>(0)
-    val counterLV: LiveData<Int>
-        get() = _counterLV
+    var _counterLV = MutableLiveData(0)
+    val counterLV: LiveData<Int> = _counterLV
 
     fun updateCounterLV(value: Int) {
         _counterLV.value = (counterLV.value ?: 0) + value
