@@ -144,67 +144,51 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Navigation Drawer with 5 menu items example...",
                 NavigationDrawerActivity::class.java,
                 R.drawable.outline_menu_open_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Prevent Data Loss",
                 "Ways of preventing data loss while changing configs...",
                 PersistDataWhileConfigChange::class.java
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Bottom Navigation",
                 "Navigation menu in screen bottom...",
                 BottomNavigationActivity::class.java,
                 iconId = R.drawable.outline_bottom_navigation_24
-            ),
-            SingleActivityData(
-                "Coffee Shop App Design",
-                "A coffee shop app only design...",
-                GetStartedPage::class.java,
-                iconId = R.drawable.outline_coffee_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Authentication With Database",
                 "Authentication pages with SqLite Database...",
                 SignUpActivity::class.java,
                 iconId = R.drawable.outline_domain_verification_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Notes App",
                 "Notes taking app with SqLite Database...",
                 NotesHomePage::class.java,
                 iconId = R.drawable.outline_add_notes_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Receive Image",
                 "Will receive an image from shared app.....",
                 ImplicitIntentActivity::class.java,
                 iconId = R.drawable.baseline_call_received_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Send Image",
                 "Choose and share an image.....",
                 ShareImageActivity::class.java,
                 iconId = R.drawable.outline_share_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Shared Preferences",
                 "Saving simple key-value paris in shared preferences.....",
                 SharedPreferenceDemoActivity::class.java,
                 iconId = R.drawable.outline_file_save_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Storages",
                 "Tried to implement all kind of storages.....",
                 NewsHubHomePage::class.java,
                 iconId = R.drawable.baseline_storage_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Picker",
                 "Accessing camera, file picker.....",
                 PickerActivity::class.java,
                 iconId = R.drawable.outline_network_ping_24
-            ),
-            SingleActivityData(
+            ), SingleActivityData(
                 "Image Download Activity",
                 "",
                 ImageDownloadActivity::class.java

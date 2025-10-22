@@ -138,14 +138,6 @@
             android:name=".PracticeLayoutActivity1"
             android:exported="true" />
         <activity
-            android:name=".coffeeshop.ParentPage"
-            android:exported="false"
-            android:theme="@style/Theme.CoffeeShop" />
-        <activity
-            android:name=".coffeeshop.GetStartedPage"
-            android:exported="false"
-            android:theme="@style/Theme.CoffeeShop" />
-        <activity
             android:name=".BottomNavigationActivity"
             android:exported="true" />
         <activity
