@@ -31,9 +31,9 @@ import com.example.firstapplication.architectures.mvp.presentation.view.UserActi
 import com.example.firstapplication.architectures.mvvm.ui.activity.BooksActivity
 import com.example.firstapplication.databinding.ActivityHomePageBinding
 import com.example.firstapplication.auth.SignUpActivity
-import com.example.firstapplication.coffeeshop.GetStartedPage
 import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
+import com.example.firstapplication.learn_retrofit.RetrofitPracticeActivity
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
@@ -256,6 +256,10 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Uploading multiple images",
                 UploadMultipleImagesActivity::class.java,
                 R.drawable.outline_animated_images_24
+            ), SingleActivityData(
+                "Albums Using Retrofit",
+                "Practicing GET call using Retrofit",
+                RetrofitPracticeActivity::class.java
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

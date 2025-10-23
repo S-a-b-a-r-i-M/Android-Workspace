@@ -5,9 +5,6 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
 import com.example.firstapplication.databinding.ActivityAmazonNavigationBinding
 import cutomutils.customToast
 
@@ -53,13 +50,5 @@ class AmazonNavigationActivity : AppCompatActivity() {
         )
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-    }
-
-    // STEP 3: REPLACE FRAGMENT METHOD
-    private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager
-            .beginTransaction()
-            .replace(R.id.fragmentContainer, fragment)
-            .commit()
     }
 }
