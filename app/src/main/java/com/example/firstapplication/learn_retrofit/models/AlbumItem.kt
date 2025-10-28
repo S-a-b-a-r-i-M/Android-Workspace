@@ -1,10 +1,6 @@
-package com.example.firstapplication.learn_retrofit
+package com.example.firstapplication.learn_retrofit.models
 
 import com.google.gson.annotations.SerializedName
-
-/*
-    1. @SerializedName("key") - mapping between json to object and vice versa.
- */
 
 data class AlbumItem(
     @SerializedName("id")

@@ -1,21 +1,16 @@
 package com.example.firstapplication;
 
-import android.app.ActionBar;
+import android.graphics.Color;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.TextUtils;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.firstapplication.databinding.ActivityPracticeJavaBinding;
 
@@ -35,17 +30,56 @@ public class PracticeJavaActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        TextView textView = new TextView(this);
-        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+        binding.getRoot().addView(getContainerWithTextView());
+
+        LinearLayout container = new LinearLayout(this);
+        container.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
         );
-        params.setMargins(24, 24, 24, 24);
-        textView.setLayoutParams(params);
+        container.setLayoutParams(containerParams);
+        TextView textView = new TextView(this);
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+        );
+        textView.setLayoutParams(textParams);
+        textView.setText("asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf asdafsdfsdfadfasdfasdf");
+        textView.setTextColor(Color.BLACK);
+        textView.setEllipsize(TextUtils.TruncateAt.END);
+        textView.setMaxLines(2);
+        container.addView(textView);
+        binding.getRoot().addView(container);
+    }
+
+    private LinearLayout getContainerWithTextView() {
+        // Parent Container
+        LinearLayout container = new LinearLayout(this);
+        container.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout.LayoutParams containerParams = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        container.setLayoutParams(containerParams);
+
+        // Text View
+        TextView textView = new TextView(this);
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                1f
+        );
+        textParams.setMargins(24, 24, 24, 24);
+        textView.setLayoutParams(textParams);
         textView.setText("As a developer, you can define shortcuts to perform specific actions in your app. You can display these shortcuts in a supported launcher or assistant—like Google Assistant—and help your users quickly start common or recommended tasks within your app.");
+        // Truncate
         textView.setMaxLines(2);
         textView.setEllipsize(TextUtils.TruncateAt.END);
 
-        binding.getRoot().addView(textView);
+        // Add TextView Into Container
+        container.addView(textView);
+        return container;
     }
 }
