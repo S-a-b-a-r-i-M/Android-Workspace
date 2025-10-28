@@ -1,5 +1,6 @@
 package com.example.firstapplication.learn_retrofit
 
+import com.example.firstapplication.learn_retrofit.api_services.AuthInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,6 +15,7 @@ object RetrofitInstance {
             .addInterceptor(
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
             )
+            .addInterceptor(AuthInterceptor { "Bearer Token" })
             .build()
 
         return Retrofit.Builder()
