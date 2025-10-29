@@ -17,8 +17,8 @@ android {
         applicationId = "com.example.firstapplication"
         minSdk = 27
         targetSdk = 36 // For which Android SDK version the app was designed and tested for.
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 1 // versionCode is for machines
+        versionName = "1.0" // versionName is for humans
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // specifies which framework to use for running automated tests on actual devices or emulators.
     }
@@ -66,16 +66,16 @@ dependencies {
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.viewpager2)
-
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-//    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
-    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+//    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
 
     // For image loading and caching
     implementation("com.github.bumptech.glide:glide:4.15.1")
