@@ -1,0 +1,41 @@
+package com.example.firstapplication.learn_room_db.ui.adapter
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.firstapplication.R
+import com.example.firstapplication.learn_room_db.data.entity.User
+
+class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val textView: TextView = itemView.findViewById(R.id.textView)
+
+        fun bind(user: User) {
+            textView.text = user.toString()
+        }
+    }
+
+    private val userList = mutableListOf<User>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.custom_single_list_item, parent, false
+        )
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bind(userList[position])
+    }
+
+    override fun getItemCount() = userList.size
+
+    fun setUserList(users: List<User>) {
+        userList.clear()
+        userList.addAll(users)
+        notifyDataSetChanged()
+    }
+}

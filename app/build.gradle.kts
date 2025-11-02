@@ -2,6 +2,7 @@
     alias(libs.plugins.android.application) // android.application plugin tells Gradle that you're building an Android app (not a library)
     alias(libs.plugins.kotlin.android) // kotlin.android plugin enables Kotlin language support in your Android project.
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.hilt)
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
     //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
     kotlin("kapt")
@@ -77,9 +78,13 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 //    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
 
+    // HILT
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+
     // For image loading and caching
     implementation("com.github.bumptech.glide:glide:4.15.1")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+    kapt("com.github.bumptech.glide:compiler:4.15.1")
 
     // For HTTP requests
     implementation("com.squareup.retrofit2:retrofit:2.9.0")

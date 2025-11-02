@@ -78,4 +78,9 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="textview">TextView</string>
+    <string name="click_to_create">Click to create</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="create">Create</string>
 </resources>

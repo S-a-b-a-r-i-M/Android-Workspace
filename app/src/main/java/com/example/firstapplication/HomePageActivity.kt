@@ -34,6 +34,7 @@ import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.learn_retrofit.RetrofitPracticeActivity
+import com.example.firstapplication.learn_room_db.ui.RoomLearningActivity
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
@@ -260,6 +261,10 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Albums Using Retrofit",
                 "Practicing GET call using Retrofit",
                 RetrofitPracticeActivity::class.java
+            ), SingleActivityData(
+                "Using Room DB",
+                "Practicing Room DB with Hilt",
+                RoomLearningActivity::class.java
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

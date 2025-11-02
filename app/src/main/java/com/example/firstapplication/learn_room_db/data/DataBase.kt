@@ -16,7 +16,7 @@ abstract class DataBase : RoomDatabase() {
          @Volatile
          private var INSTANCE: DataBase? = null
 
-        fun getDataBase(appContext: Context): DataBase {
+        fun getInstance(appContext: Context): DataBase {
             // If already present then return
             INSTANCE?.let { return it }
 
