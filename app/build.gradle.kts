@@ -1,7 +1,7 @@
  plugins {
     alias(libs.plugins.android.application) // android.application plugin tells Gradle that you're building an Android app (not a library)
     alias(libs.plugins.kotlin.android) // kotlin.android plugin enables Kotlin language support in your Android project.
-    alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.compose) // This is the **Kotlin Compiler Plugin for Jetpack Compose**
     alias(libs.plugins.kotlin.hilt)
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
     //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
@@ -9,13 +9,13 @@
 }
 
 android {
-    namespace = "com.example.firstapplication" // acts like your app's unique identifier within the Android system - think of it as your app's address
+    namespace = "com.example.firstapplication" // Used for generated code and R class.
     compileSdk = 36  /* this tells Gradle which version of the Android SDK to use when compiling your code.
     SDK 36 corresponds to a recent version of Android, giving you access to the latest APIs and features.
     */
 
     defaultConfig {
-        applicationId = "com.example.firstapplication"
+        applicationId = "com.example.firstapplication" // Used to identify your app on device & Play Store
         minSdk = 27
         targetSdk = 36 // For which Android SDK version the app was designed and tested for.
         versionCode = 1 // versionCode is for machines
@@ -73,10 +73,18 @@ dependencies {
     implementation(libs.androidx.navigation.fragment)
     implementation(libs.androidx.navigation.ui)
 
+    // Force a compatible JavaPoet version
+    constraints {
+        implementation("com.squareup:javapoet:1.13.0") {
+            because("Resolve JavaPoet version conflicts between annotation processors")
+        }
+    }
+
     // Room
     implementation(libs.androidx.room.runtime)
+    // ksp(libs.androidx.room.compiler)
     kapt(libs.androidx.room.compiler)
-//    annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
+    // annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
 
     // HILT
     implementation(libs.hilt.android)
