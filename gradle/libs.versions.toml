@@ -24,6 +24,7 @@ legacySupportV4 = "1.0.0"
 navigationFragment = "2.9.5"
 navigationUi = "2.9.5"
 hilt = "2.57.2"
+# ksp = "2.0.21-1.0.25" # [ Kotlin Compiler Version ] - [ KSP Plugin Version ]
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }

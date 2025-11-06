@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityCounterBinding
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class CounterActivity : AppCompatActivity() {
