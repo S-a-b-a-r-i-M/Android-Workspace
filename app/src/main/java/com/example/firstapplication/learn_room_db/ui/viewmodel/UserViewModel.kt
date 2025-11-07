@@ -36,4 +36,24 @@ class UserViewModel @Inject constructor(private val userRepo: UserRepo) : ViewMo
             _result.value = Result.Success("User created successfully.")
         }
     }
+
+    fun updateUser(user: User) {
+        _result.value = Result.Loading
+        viewModelScope.launch {
+            if (userRepo.updateUser(user))
+                _result.value = Result.Success("User updated.")
+            else
+                _result.value = Result.Error("User update failed.")
+        }
+    }
+
+    fun deleteUser(userId: Int) {
+        _result.value = Result.Loading
+        viewModelScope.launch {
+            if (userRepo.deleteUser(userId))
+                _result.value = Result.Success("User deleted successfully.")
+            else
+                _result.value = Result.Error("User deletion failed.")
+        }
+    }
 }

@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.FragmentListBinding
+import com.example.firstapplication.learn_room_db.data.entity.User
 import com.example.firstapplication.learn_room_db.ui.adapter.UserListAdapter
 import com.example.firstapplication.learn_room_db.ui.viewmodel.UserViewModel
 import cutomutils.Result
@@ -35,18 +36,25 @@ class UserListFragment : Fragment(R.layout.fragment_list) {
         setListeners()
         setObservers()
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
             viewModel.loadAllUsers()
-        }
     }
 
     private fun setupUI() {
         // Setup Recycler View
-        adapter = UserListAdapter()
+        adapter = UserListAdapter(::handleOnEdit)
         binding.rvUsers.apply {
             layoutManager = LinearLayoutManager(_context)
             adapter = this@UserListFragment.adapter
         }
+    }
+
+    private fun handleOnEdit(user: User) {
+        val destination = CreateOrEditFragment()
+        destination.arguments = Bundle().apply { putParcelable("user", user) }
+        (requireActivity() as RoomLearningActivity).loadFragment(
+            destination, true
+        )
     }
 
     private fun setListeners() {

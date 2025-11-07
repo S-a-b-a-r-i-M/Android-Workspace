@@ -1,5 +1,6 @@
 package com.example.firstapplication.learn_room_db.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -23,13 +24,35 @@ class CreateOrEditFragment : Fragment(R.layout.fragment_create_or_edit) {
         get() = requireContext()
 
     private val viewModel: UserViewModel by viewModels()
+    private var userToEdit: User? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        userToEdit = arguments?.getParcelable<User>("user")
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentCreateOrEditBinding.bind(view)
 
+        setupUI()
         setListeners()
         setObservers()
+    }
+
+    private fun setupUI() {
+        with(binding) {
+            userToEdit?.let {
+                tvTitle.text = getString(R.string.update)
+                etFirstName.setText(it.firstName)
+                etLastName.setText(it.lastName)
+                etEmail.setText(it.email)
+
+                ibtnDelete.visibility = View.VISIBLE
+            } ?: run {
+                tvTitle.text = getString(R.string.create)
+            }
+        }
     }
 
     private fun getUserDetails(): User? {
@@ -60,9 +83,28 @@ class CreateOrEditFragment : Fragment(R.layout.fragment_create_or_edit) {
     private fun setListeners() {
         with(binding) {
             btnSubmit.setOnClickListener {
-                val user = getUserDetails()
-                if (user != null)
+                val _userToEdit = userToEdit
+                val user = getUserDetails() ?: return@setOnClickListener
+
+                if (_userToEdit != null) {
+                    // Add User Id
+                    viewModel.updateUser(user.copy(id = _userToEdit.id))
+                }
+                else
                     viewModel.createUser(user)
+            }
+
+            userToEdit?.let { user ->
+                ibtnDelete.setOnClickListener {
+                    AlertDialog.Builder(_context)
+                    .setTitle("Delete ${user.firstName} ${user.lastName}")
+                    .setMessage("Are you sure ?")
+                    .setPositiveButton("Delete") { _, _ ->
+                        viewModel.deleteUser(user.id)
+                    }
+                    .setNegativeButton("Cancel", null)
+                    .show()
+                }
             }
         }
     }

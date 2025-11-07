@@ -8,13 +8,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.firstapplication.R
 import com.example.firstapplication.learn_room_db.data.entity.User
 
-class UserListAdapter : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
+class UserListAdapter(private val onClick: (User) -> Unit)
+    : RecyclerView.Adapter<UserListAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textView: TextView = itemView.findViewById(R.id.textView)
 
         fun bind(user: User) {
             textView.text = user.toString()
+            itemView.setOnClickListener {
+                onClick(user)
+            }
         }
     }
 

@@ -9,16 +9,35 @@
     android:gravity="center"
     tools:context=".learn_room_db.ui.CreateOrEditFragment">
 
-    <TextView
-        android:id="@+id/tvTitle"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="12dp"
-        android:gravity="center"
-        android:text="Title"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary" />
+        android:gravity="center_vertical"
+        android:layout_marginVertical="12dp" >
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Title"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorPrimary" />
+
+        <ImageButton
+            android:id="@+id/ibtnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:visibility="gone"
+            android:src="@drawable/outline_delete_24"
+            android:tint="@color/red" />
+
+    </LinearLayout>
+
 
     <EditText
         android:id="@+id/etFirstName"
