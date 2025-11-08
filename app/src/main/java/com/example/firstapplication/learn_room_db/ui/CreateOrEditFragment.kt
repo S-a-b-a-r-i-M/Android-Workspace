@@ -5,9 +5,12 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.EditText
+import androidx.core.view.drawToBitmap
 import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.FragmentCreateOrEditBinding
+import com.example.firstapplication.learn_room_db.data.entity.Address
 import com.example.firstapplication.learn_room_db.data.entity.User
 import com.example.firstapplication.learn_room_db.ui.viewmodel.UserViewModel
 import cutomutils.Result
@@ -47,6 +50,9 @@ class CreateOrEditFragment : Fragment(R.layout.fragment_create_or_edit) {
                 etFirstName.setText(it.firstName)
                 etLastName.setText(it.lastName)
                 etEmail.setText(it.email)
+                etStreet.setText(it.address.street)
+                etCity.setText(it.address.city)
+                etPincode.setText(it.address.pincode.toString())
 
                 ibtnDelete.visibility = View.VISIBLE
             } ?: run {
@@ -69,13 +75,22 @@ class CreateOrEditFragment : Fragment(R.layout.fragment_create_or_edit) {
         with(binding) {
             if (checkIsEmpty(etFirstName) ||
                 checkIsEmpty(etLastName) ||
-                checkIsEmpty(etEmail))
+                checkIsEmpty(etEmail) ||
+                checkIsEmpty(etCity) ||
+                checkIsEmpty(etPincode))
                 return null
 
+            val streetValue = etStreet.text.toString()
+            val address = Address(
+                street = if (streetValue.isBlank()) null else streetValue,
+                city = etCity.text.toString(),
+                pincode = etPincode.text.toString().toInt()
+            )
             return User (
                 firstName = etFirstName.text.toString(),
                 lastName = etLastName.text.toString(),
-                email = etEmail.text.toString()
+                email = etEmail.text.toString(),
+                address = address
             )
         }
     }
@@ -90,8 +105,13 @@ class CreateOrEditFragment : Fragment(R.layout.fragment_create_or_edit) {
                     // Add User Id
                     viewModel.updateUser(user.copy(id = _userToEdit.id))
                 }
-                else
-                    viewModel.createUser(user)
+                else {
+                    Glide.with(_context)
+                        .load("https://via.assets.so/img.jpg?w=400&h=400&shape=diamond&pattern=grid&bg=e5e7eb&f=png")
+                        .into(binding.imageView)
+                    val imageBitmap = binding.imageView.drawToBitmap()
+                    viewModel.createUser(user.copy(profileImage = imageBitmap))
+                }
             }
 
             userToEdit?.let { user ->
