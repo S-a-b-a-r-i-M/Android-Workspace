@@ -7,6 +7,14 @@
     //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
     kotlin("kapt")
 }
+/* Just A Custom Plugin */
+apply<CustomPlugin>()
+
+class CustomPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        println("Hello Tech Universe !!!")
+    }
+}
 
 android {
     namespace = "com.example.firstapplication" // Used for generated code and R class.
