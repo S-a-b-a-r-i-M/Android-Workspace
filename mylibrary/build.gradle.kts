@@ -15,6 +15,10 @@ android {
     }
 
     buildTypes {
+        create("staging") {
+            isMinifyEnabled = false
+            enableAndroidTestCoverage = false
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(

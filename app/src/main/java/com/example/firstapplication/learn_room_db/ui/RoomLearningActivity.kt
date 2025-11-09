@@ -26,7 +26,7 @@ class RoomLearningActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setWindowInsets()
 
-        // Loading Initial Fragment
+        /* Loading Initial Fragment */
         loadFragment(UserListFragment(), binding.fragmentContainer.id)
     }
 

@@ -12,7 +12,7 @@ apply<CustomPlugin>()
 
 class CustomPlugin : Plugin<Project> {
     override fun apply(target: Project) {
-        println("Hello Tech Universe !!!")
+        println("Hello Tech Universe !!! I'm a custom plugin😁")
     }
 }
 
@@ -32,14 +32,55 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" // specifies which framework to use for running automated tests on actual devices or emulators.
     }
 
+
+    println("<------------ flavorDimensions: $flavorDimensions")
+    flavorDimensions += listOf("paidStatus", "style")
+    productFlavors {
+        create("free") {
+            applicationIdSuffix = ".free" /* applicationIdSuffix allows you to install
+            - multiple variants of the same app on one device simultaneously.
+            Practical benefit: Developers can test release builds without losing their debug build with test data.
+            Testers can compare multiple versions without switching.
+            */
+            dimension = "paidStatus"
+        }
+
+        create("paid") {
+            applicationIdSuffix = ".paid"
+            dimension = "paidStatus"
+        }
+
+        create("blue") {
+            dimension = "style"
+        }
+        create("violet") {
+            dimension = "style"
+        }
+    }
+
     buildTypes { // This defines different configurations for building your app
+        debug {
+            isMinifyEnabled = false  /*  means the build process won't shrink your code or remove unused parts
+            (you'd typically enable this for production to reduce app size and prevent security risks of reverse engineering) */
+            buildConfigField("String", "BASE_URL", "\"https://dev.com\"")
+        }
+
+        create("staging") { // Let's Assume We Need To Ship The APK to Testing Team But No Need For Some Release Level Build Processes
+            // You Can See This Variant In Build Variants
+            isMinifyEnabled = true
+            buildConfigField("String", "BASE_URL", "\"https://dev.com\"")
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
         release {
-            isMinifyEnabled = false /*  means the build process won't shrink your code or remove unused parts
-            (you'd typically enable this for production to reduce app size) */
+            isMinifyEnabled = true
             proguardFiles( // specify configuration files for code obfuscation and optimization.
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BASE_URL", "\"https://release.com\"")
+            signingConfig = signingConfigs.getByName("debug")
+            enableAndroidTestCoverage = false
         }
     }
     compileOptions {
@@ -52,6 +93,7 @@ android {
     buildFeatures {
         compose = true
         viewBinding = true
+        buildConfig = true
     }
 }
 
@@ -60,6 +102,8 @@ dependencies {
     // 2. testImplementation are only used for unit tests running on your development machine
     // 3. androidTestImplementation are for tests running on Android devices
     // 4. debugImplementation are only included in debug builds
+    implementation(project(":mylibrary"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

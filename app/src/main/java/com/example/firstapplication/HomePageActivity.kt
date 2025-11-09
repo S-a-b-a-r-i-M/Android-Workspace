@@ -39,8 +39,10 @@ import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
 import com.example.firstapplication.viewmodels.MyViewModel
+import com.example.mylibrary.MyLibraryClass
 import cutomutils.customToast
 import cutomutils.logDebug
+import cutomutils.logInfo
 import cutomutils.printLogInfo
 
 class HomePageActivity : StackInfoAppCompactActivity() {
@@ -78,6 +80,12 @@ class HomePageActivity : StackInfoAppCompactActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Accessing Another Module Class
+        MyLibraryClass("Accessing my own library class. Which sits in different module.")
+
+        // Variables With Build Type
+        logInfo("<-------- Build Type: ${BuildConfig.BUILD_TYPE}, Base Url : ${BuildConfig.BASE_URL}")
 
         // UI MODE
         printLogInfo("Is Dark Mode: ${isDarkModeOn()}")
