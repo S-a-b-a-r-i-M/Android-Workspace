@@ -4,10 +4,10 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-11-02T02:35:27.172196Z">
+        <DropdownSelection timestamp="2025-11-27T06:25:22.151278Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sabari-23133/.android/avd/Pixel_8_Pro_2.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sabari-23133/.android/avd/Pixel_9_Pro.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -25,6 +25,32 @@
             </Target>
           </targets>
         </DialogSelection>
+      </SelectionState>
+      <SelectionState runConfigName="myapplication2">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DialerActivity (1)">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="DialerTest">
+        <option name="selectionMode" value="DROPDOWN" />
+        <DropdownSelection timestamp="2025-11-28T04:59:21.740866Z">
+          <Target type="DEFAULT_BOOT">
+            <handle>
+              <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sabari-23133/.android/avd/Pixel_9_Pro.avd" />
+            </handle>
+          </Target>
+        </DropdownSelection>
+        <DialogSelection />
+      </SelectionState>
+      <SelectionState runConfigName="makeCallWithValidPhone()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="changeText_BackgroundProcess()">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
+      <SelectionState runConfigName="IdlingTextToBeChangedTest">
+        <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
   </component>

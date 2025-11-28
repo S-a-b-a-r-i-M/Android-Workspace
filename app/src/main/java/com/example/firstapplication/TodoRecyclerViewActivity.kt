@@ -19,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
- class RecyclerViewActivity2 : AppCompatActivity() {
+ class TodoRecyclerViewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerView2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +59,7 @@ import kotlinx.coroutines.launch
                 val newTodo = newTodoET.text.toString().trim()
                 if (newTodo.isEmpty()) {
                     // Failure Toast
-                    Toast(this@RecyclerViewActivity2).apply {
+                    Toast(this@TodoRecyclerViewActivity).apply {
                         setText("Todo cannot be empty...")
                     }.show()
                     return@setOnClickListener
@@ -68,7 +68,7 @@ import kotlinx.coroutines.launch
                 // Add New Todo
                 todos.add(TodoData(newTodoET.text.toString()))
                 newTodoET.text.clear()
-                Toast(this@RecyclerViewActivity2).apply {
+                Toast(this@TodoRecyclerViewActivity).apply {
                     setText("New Todo added...")
                 }.show()
 
@@ -79,7 +79,7 @@ import kotlinx.coroutines.launch
     }
 }
 
-// DATA CLASS FOR AN TODO
+
 data class TodoData(val title: String, val isCompleted: Boolean = false)
 
 // CREATE ADAPTER CLASS

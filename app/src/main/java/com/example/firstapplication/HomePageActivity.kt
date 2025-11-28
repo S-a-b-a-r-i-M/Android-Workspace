@@ -33,6 +33,8 @@ import com.example.firstapplication.databinding.ActivityHomePageBinding
 import com.example.firstapplication.auth.SignUpActivity
 import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
+import com.example.firstapplication.lean_ui_automation.DialerActivity
+import com.example.firstapplication.lean_ui_automation.UiAutomationFirstActivity
 import com.example.firstapplication.learn_retrofit.RetrofitPracticeActivity
 import com.example.firstapplication.learn_room_db.ui.RoomLearningActivity
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
@@ -137,6 +139,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "RecyclerView1",
                 "Vertically scrollable recycler view example...",
                 RecyclerViewActivity::class.java,
+                R.drawable.outline_list_alt_24
+            ),SingleActivityData(
+                "Todo RecyclerView",
+                "Vertically scrollable recycler view example...",
+                TodoRecyclerViewActivity::class.java,
                 R.drawable.outline_list_alt_24
             ),SingleActivityData(
                 "Tabs",
@@ -273,6 +280,14 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Using Room DB",
                 "Practicing Room DB with Hilt",
                 RoomLearningActivity::class.java
+            ), SingleActivityData(
+                "Learning UiAutomation",
+                "Practicing UiAutomation",
+                UiAutomationFirstActivity::class.java
+            ), SingleActivityData(
+                "Dialer",
+                "Practicing UiAutomation",
+                DialerActivity::class.java
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

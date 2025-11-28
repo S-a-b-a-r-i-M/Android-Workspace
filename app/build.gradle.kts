@@ -165,11 +165,61 @@ dependencies {
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    // Test
+    // Testing-only dependencies
+/*
+    // Kotlin standard library - Provides Kotlin language features in tests
+    androidTestImplementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.22")
+
+    // AndroidX Test Core - Core testing utilities (ApplicationProvider, ActivityScenario)
+    androidTestImplementation("androidx.test:core:1.5.0")
+
+    // AndroidX Test Core KTX - Kotlin extensions for cleaner test code
+    androidTestImplementation("androidx.test:core-ktx:1.5.0")
+
+    // AndroidX JUnit - Provides AndroidJUnit4 runner to run tests on Android devices/emulators
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+
+    // AndroidX JUnit KTX - Kotlin extensions for JUnit (e.g., ActivityScenarioRule)
+    androidTestImplementation("androidx.test.ext:junit-ktx:1.1.5")
+
+    // Test Runner - Executes instrumented tests on Android
+    androidTestImplementation("androidx.test:runner:1.5.2")
+
+    // Espresso Core - UI testing framework for interacting with views (clicks, typing, assertions)
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // --- Local Unit Tests (run on JVM, faster) ---
+
+    // Test Core - Enables using Android Test APIs in local unit tests
+    testImplementation("androidx.test:core:1.5.0")
+
+    // Test JUnit - Allows using AndroidJUnit4 in Robolectric tests
+    testImplementation("androidx.test.ext:junit:1.1.5")
+
+    // JUnit 4 - Core unit testing framework with @Test, assertions, etc.
+    testImplementation("junit:junit:4.13.2")
+
+    // Robolectric - Simulates Android framework for fast local unit tests without emulator
+    testImplementation("org.robolectric:robolectric:4.11.1")
+
+    // Espresso Core - For testing UI logic in Robolectric tests
+    testImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // Espresso Intents - Mock and verify intents in Robolectric tests
+    testImplementation("androidx.test.espresso:espresso-intents:3.5.1")
+
+    // Truth - Fluent assertion library for more readable tests (e.g., assertThat(x).isEqualTo(y))
+    testImplementation("androidx.test.ext:truth:1.5.0")
+
+ */
+
+    androidTestImplementation("androidx.test.ext:junit-ktx:1.1.3")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.6.1")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.6.1")
+    implementation("androidx.test.espresso:espresso-idling-resource:3.6.1") //Will Be Used In App Code
+    androidTestImplementation("androidx.test.espresso:espresso-idling-resource:3.6.1")
 }

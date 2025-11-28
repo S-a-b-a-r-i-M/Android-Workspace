@@ -90,4 +90,6 @@
     <string name="pincode">Pincode</string>
     <string name="street">Street</string>
     <string name="address">Address</string>
+    <string name="phone_no">phone no</string>
+    <string name="dial">Dial</string>
 </resources>

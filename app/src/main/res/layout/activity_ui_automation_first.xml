@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="24dp"
+    tools:context=".lean_ui_automation.UiAutomationFirstActivity">
+
+    <TextView
+        android:id="@+id/tvToBeChanged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="32dp"
+        android:textSize="24sp"
+        android:text="TextView" />
+
+    <EditText
+        android:id="@+id/etInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="12dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnChangeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Change Text" />
+
+    <Button
+        android:id="@+id/btnOpenNextPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="12dp"
+        android:text="Open Activity and Change Text" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="12dp"
+        android:background="@color/light_gray" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="24dp"
+        android:textSize="26sp"
+        android:text="Idling Resource Example"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvToBeChanged2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="6dp"
+        android:textSize="24sp"
+        android:text="Idling Resource Example" />
+
+    <EditText
+        android:id="@+id/etInput2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginHorizontal="12dp"
+        android:ems="10"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnChangeText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="Change Text" />
+
+</LinearLayout>
