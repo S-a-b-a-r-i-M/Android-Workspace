@@ -1,4 +1,4 @@
-package com.example.firstapplication
+package com.example.firstapplication.learn_recyclerview
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityRecyclerWithDiffUtilBinding
 
 class RecyclerWithDiffUtil : AppCompatActivity() {

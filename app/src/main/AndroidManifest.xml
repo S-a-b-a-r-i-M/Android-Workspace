@@ -63,7 +63,7 @@
             android:name=".SinglePropertyActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerWithDiffUtil"
+            android:name=".learn_recyclerview.RecyclerWithDiffUtil"
             android:exported="false"
             android:theme="@style/Theme.ApplicationWithoutActionBar" />
         <activity
@@ -123,7 +123,7 @@
             android:name=".DifferentStorageActivity"
             android:exported="false" />
         <activity
-            android:name=".ListActivity2"
+            android:name=".learn_recyclerview.ListActivity2"
             android:exported="false" />
         <activity
             android:name=".SharedPreferenceDemoActivity"
@@ -197,7 +197,7 @@
             android:name=".TodoRecyclerViewActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerViewActivity"
+            android:name=".learn_recyclerview.RecyclerViewActivity"
             android:exported="false" />
         <activity
             android:name=".ViewPagerActivity"
@@ -206,7 +206,7 @@
             android:name=".FragmentsActivity"
             android:exported="false" />
         <activity
-            android:name=".ListActivity"
+            android:name=".learn_recyclerview.ListActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity2"

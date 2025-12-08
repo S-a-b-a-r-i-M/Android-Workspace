@@ -1,4 +1,4 @@
-package com.example.firstapplication
+package com.example.firstapplication.learn_recyclerview
 
 import android.content.Context
 import android.os.Bundle
@@ -10,6 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.firstapplication.learn_recyclerview.ListActivity2
+import com.example.firstapplication.R
 import cutomutils.customToast
 import cutomutils.setGotoTargetPage
 

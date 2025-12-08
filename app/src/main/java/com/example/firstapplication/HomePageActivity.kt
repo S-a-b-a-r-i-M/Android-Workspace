@@ -35,6 +35,9 @@ import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.lean_ui_automation.DialerActivity
 import com.example.firstapplication.lean_ui_automation.UiAutomationFirstActivity
+import com.example.firstapplication.learn_recyclerview.ListActivity
+import com.example.firstapplication.learn_recyclerview.RecyclerViewActivity
+import com.example.firstapplication.learn_recyclerview.RecyclerWithDiffUtil
 import com.example.firstapplication.learn_retrofit.RetrofitPracticeActivity
 import com.example.firstapplication.learn_room_db.ui.RoomLearningActivity
 import com.example.firstapplication.newsapp.ui.NewsMainActivity

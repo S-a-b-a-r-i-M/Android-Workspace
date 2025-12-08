@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListActivity2">
+    tools:context=".learn_recyclerview.ListActivity2">
 
     <TextView
         android:id="@+id/titleTV"

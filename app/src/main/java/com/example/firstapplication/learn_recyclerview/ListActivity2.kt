@@ -1,6 +1,5 @@
-package com.example.firstapplication
+package com.example.firstapplication.learn_recyclerview
 
-import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -14,6 +13,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.firstapplication.R
 import cutomutils.printLogInfo
 
 class ListActivity2 : AppCompatActivity() {
