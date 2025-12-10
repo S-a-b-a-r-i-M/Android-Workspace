@@ -173,6 +173,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 BottomNavigationActivity::class.java,
                 iconId = R.drawable.outline_bottom_navigation_24
             ), SingleActivityData(
+                "Bottom Sheets",
+                "Practising bottom sheets...",
+                BottomSheetActivity::class.java,
+                iconId = R.drawable.outline_bottom_navigation_24
+            ), SingleActivityData(
                 "Authentication With Database",
                 "Authentication pages with SqLite Database...",
                 SignUpActivity::class.java,

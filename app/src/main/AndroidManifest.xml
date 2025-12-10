@@ -28,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
+            android:name=".BottomSheetActivity"
+            android:exported="false" />
+        <activity
             android:name=".lean_ui_automation.DialerActivity"
             android:exported="false" />
         <activity

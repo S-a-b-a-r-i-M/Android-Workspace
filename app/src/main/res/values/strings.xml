@@ -92,4 +92,5 @@
     <string name="address">Address</string>
     <string name="phone_no">phone no</string>
     <string name="dial">Dial</string>
+    <string name="option_1">Option 1</string>
 </resources>

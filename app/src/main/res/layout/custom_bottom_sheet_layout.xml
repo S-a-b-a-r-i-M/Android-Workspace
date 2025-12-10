@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="8dp"
+    android:background="@drawable/bt_sheet_bg">
+
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="@string/property_des_hint"
+        android:src="@drawable/outline_remove_24"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvOption1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/option_1"
+        app:drawableEndCompat="@drawable/baseline_done_24" />
+
+    <TextView
+        android:id="@+id/tvOption2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Option 2"
+        app:drawableEndCompat="@drawable/baseline_done_24" />
+
+    <TextView
+        android:id="@+id/tvOption3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Option 3"
+        app:drawableEndCompat="@drawable/baseline_done_24" />
+</LinearLayout>
