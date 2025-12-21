@@ -2,10 +2,14 @@ package com.example.firstapplication
 
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.util.Log
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -80,22 +84,51 @@ class MainActivity2 : StackInfoAppCompactActivity() {
     }
 
     private fun setAlertDialog(button: Button)  {
+        val options = arrayOf("one", "two", "three", "four", "5", "6", "7", "8", "9", "10", "11", "12", "13")
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, options)
+
         button.setOnClickListener {
             val alertDialog = AlertDialog.Builder(this)
                 .setTitle("Alert Dialog Title")
-                .setMessage("This is an example for alert dialog...")
-                .setPositiveButton("Accept") { dialog, which ->
-                    cutomutils.customToast(this@MainActivity2, "positive button")
-                }
-                .setNeutralButton("Remind Later") { dialog, which ->
-                    cutomutils.customToast(this@MainActivity2, "neutral button")
-                }
-                .setNegativeButton("Decline") { dialog, which ->
-                    cutomutils.customToast(this@MainActivity2, "negative button")
-                }
+//                .setMessage("This is an example for alert dialog...")
+//                .setPositiveButton("Accept") { dialog, which ->
+//                    cutomutils.customToast(this@MainActivity2, "positive button")
+//                }
+//                .setNeutralButton("Remind Later") { dialog, which ->
+//                    cutomutils.customToast(this@MainActivity2, "neutral button")
+//                }
+//                .setNegativeButton("Decline") { dialog, which ->
+//                    cutomutils.customToast(this@MainActivity2, "negative button")
+//                }
+                .setAdapter(adapter, null)
+//                .setItems(options) { dialog, which -> println(which) }
                 .create()
 
             alertDialog.show()
+
+            // Method-1 -> Working 👍
+//            /*
+            alertDialog.listView.setOnHierarchyChangeListener(
+                object :  ViewGroup.OnHierarchyChangeListener {
+                    override fun onChildViewAdded(parent: View?, child: View?) {
+                        (child as? TextView)?.text
+                        child?.contentDescription = "abracadabra"
+                    }
+
+                    override fun onChildViewRemoved(parent: View?, child: View?) { }
+                }
+            )
+//             */
+
+            // Method-2 ->
+
+
+        // Not Worked
+//            val count = alertDialog.listView.adapter
+//            for (i in 0.until(listView.childCount)) {
+//                val itemView = listView.getChildAt(i)
+//                println(itemView)
+//            }
         }
     }
 

@@ -165,6 +165,9 @@ dependencies {
     // Splash Screen
     implementation("androidx.core:core-splashscreen:1.0.1")
 
+    // androidx.preference
+    implementation("androidx.preference:preference:1.2.1")
+
     // Test
     // Testing-only dependencies
 /*

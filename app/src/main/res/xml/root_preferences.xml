@@ -1,0 +1,69 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/messages_header" app:allowDividerBelow="true" app:summary="fasfasfsaf">
+
+<!--        <EditTextPreference-->
+<!--            app:key="signature"-->
+<!--            app:title="@string/signature_title"-->
+<!--            app:useSimpleSummaryProvider="true" />-->
+
+        <com.example.firstapplication.settings_preferences.CustomPreference
+            app:key="Sample_Simple_custom_Preference"
+            app:title="Custom Preference"
+            app:summary="summary" />
+
+        <Preference
+            app:key="Sample_Simple_Preference"
+            app:title="Inbuilt Preference"
+            app:summary="summary"
+            app:icon="@drawable/outline_profile_24" />
+
+        <com.example.firstapplication.settings_preferences.CustomListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="custom_reply"
+            app:title="@string/custom_reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            app:defaultValue="reply"
+            app:entries="@array/reply_entries"
+            app:entryValues="@array/reply_values"
+            app:key="reply"
+            app:title="@string/reply_title"
+            app:useSimpleSummaryProvider="true" />
+
+        <MultiSelectListPreference
+            app:key="notification_types"
+            app:title="Notification Types"
+            android:entries="@array/no_bvall" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="List Preference" app:allowDividerAbove="true">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="@string/sync_title" />
+
+        <SwitchPreferenceCompat
+            app:dependency="sync"
+            app:key="attachment"
+            app:summaryOff="@string/attachment_summary_off"
+            app:summaryOn="@string/attachment_summary_on"
+            app:title="@string/attachment_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Check Box Preference" app:allowDividerAbove="true">
+
+        <CheckBoxPreference
+            app:key="accept_terms"
+            app:title="Accept Terms and Conditions"
+            app:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

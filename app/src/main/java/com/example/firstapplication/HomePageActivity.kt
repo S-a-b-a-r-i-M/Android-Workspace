@@ -43,6 +43,7 @@ import com.example.firstapplication.learn_room_db.ui.RoomLearningActivity
 import com.example.firstapplication.newsapp.ui.NewsMainActivity
 import com.example.firstapplication.newshub.NewsHubHomePage
 import com.example.firstapplication.notes.ui.NotesHomePage
+import com.example.firstapplication.settings_preferences.SettingsPreferencesActivity
 import com.example.firstapplication.viewmodels.MyViewModel
 import com.example.mylibrary.MyLibraryClass
 import cutomutils.customToast
@@ -85,6 +86,9 @@ class HomePageActivity : StackInfoAppCompactActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Accessing Settings Preferences
+
 
         // Accessing Another Module Class
         MyLibraryClass("Accessing my own library class. Which sits in different module.")
@@ -296,6 +300,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Dialer",
                 "Practicing UiAutomation",
                 DialerActivity::class.java
+            ), SingleActivityData(
+                "Setting Preferences",
+                " using androidx.preferences",
+                SettingsPreferencesActivity::class.java,
+                R.drawable.outline_admin_panel_settings_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView
