@@ -54,6 +54,8 @@ class CustomToolbar : AppCompatActivity() {
                 }
             })
         }
+        val cameraMenu = menu?.findItem(R.id.cameraMenu)
+        cameraMenu?.contentDescription = "abracadabra"
         return true
     }
 
@@ -65,6 +67,7 @@ class CustomToolbar : AppCompatActivity() {
             R.id.cameraMenu -> showToast("Camera opened")
             else -> showToast("Invalid option")
         }
+        val cnt = item.contentDescription
         return true
     }
 

@@ -134,6 +134,9 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.runtime)
+
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
     // ksp(libs.androidx.room.compiler)
     kapt(libs.androidx.room.compiler)
     // annotationProcessor("androidx.room:room-compiler:2.7.2") The issue: You’re coding in Kotlin, but annotationProcessor is for Java.
@@ -167,6 +170,10 @@ dependencies {
 
     // androidx.preference
     implementation("androidx.preference:preference:1.2.1")
+
+    // App Widget
+    implementation(libs.widget.glance)
+    implementation(libs.widget.glance.material3)
 
     // Test
     // Testing-only dependencies
@@ -225,4 +232,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-intents:3.6.1")
     implementation("androidx.test.espresso:espresso-idling-resource:3.6.1") //Will Be Used In App Code
     androidTestImplementation("androidx.test.espresso:espresso-idling-resource:3.6.1")
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
 }

@@ -22,7 +22,8 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun setupPreferences() {
-
+        val replyListPreference = findPreference<CustomListPreference>("custom_reply")
+        replyListPreference?.entries = arrayOf("Replay All", "Replay Partial", "Replay None")
     }
 }
 
