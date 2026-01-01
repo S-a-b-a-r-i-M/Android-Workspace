@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="100dp"
+    android:minHeight="60dp"
+    android:updatePeriodMillis="60000"
+    android:description="@string/legacy_widget_example_1"
+    android:resizeMode="vertical|horizontal"
+    android:widgetFeatures="reconfigurable|configuration_optional"
+    />

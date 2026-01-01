@@ -31,6 +31,9 @@
     <string name="un_furnished">UnFurnished</string>
     <string name="monthly_maintenance">Monthly Maintenance</string>
     <string name="location_details">Location Details</string>
+    <string name="my_widget_1">My Widget 1</string>
+    <string name="widget_with_todos">Widget with todos</string>
+    <string name="legacy_widget_example_1">legacy_widget_example_1</string>
     <string name="city">City</string>
     <string name="locality">Locality</string>
     <string name="toggle_fav">toggle fav</string>
@@ -109,4 +112,6 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_jcmain">JCActivity1</string>
+    <string name="my_widget">My Widget</string>
+    <string name="click_to_update">Click to update</string>
 </resources>
