@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
-            android:name=".jetpack_compose.JCActivity1"
+            android:name=".learn_jetpack_compose.JCActivity1"
             android:exported="false"
             android:label="@string/title_activity_jcmain"
             android:theme="@style/Theme.ApplicationWithoutActionBar" />
@@ -261,6 +261,17 @@
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/widget_todos_info_2" />
+        </receiver>
+
+        <receiver
+            android:name=".learn_app_widgets.MyBroadCastReceiver"
+            android:exported="true">
+            <!-- Specify which broadcasts to listen for -->
+            <intent-filter>
+                <action android:name="android.intent.action.POWER_CONNECTED" />
+                <action android:name="android.intent.action.POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
         </receiver>
 
         <service

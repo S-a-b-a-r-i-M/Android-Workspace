@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.Menu
@@ -50,6 +51,7 @@ import cutomutils.customToast
 import cutomutils.logDebug
 import cutomutils.logInfo
 import cutomutils.printLogInfo
+import cutomutils.showToast
 
 class HomePageActivity : StackInfoAppCompactActivity() {
     private lateinit var binding: ActivityHomePageBinding
@@ -87,7 +89,8 @@ class HomePageActivity : StackInfoAppCompactActivity() {
             insets
         }
 
-        // Accessing Settings Preferences
+        val adb = Settings.Secure.getInt(contentResolver, Settings.Global.DEVELOPMENT_SETTINGS_ENABLED, 0)
+        showToast("Developer Option is ${if (adb != 0) "Enabled" else "Disabled"}")
 
 
         // Accessing Another Module Class
