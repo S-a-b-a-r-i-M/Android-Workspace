@@ -10,7 +10,6 @@ import android.widget.RemoteViewsService
 import android.widget.Toast
 import com.example.firstapplication.R
 import cutomutils.logWarning
-import kotlinx.coroutines.delay
 
 data class TodoData(val id: Int, val title: String, var isCompleted: Boolean = false)
 
@@ -90,7 +89,7 @@ class TodoWidgetProvider : AppWidgetProvider() {
 
             todoList.find { it.id == completedTodoId }?.let {
                 it.isCompleted = true
-                Toast.makeText(context, "${it.title} is Completed", Toast.LENGTH_SHORT)
+                Toast.makeText(context, "${it.title} is Completed", Toast.LENGTH_SHORT).show()
                 refreshWidget(context, widgetId)
             }
         }
@@ -109,13 +108,11 @@ class TodoWidgetProvider : AppWidgetProvider() {
 
 
 class TodoWidgetService : RemoteViewsService() {
-    override fun onGetViewFactory(intent: Intent) = TodoWidgetRemoteViewsFactory(applicationContext, intent)
+    override fun onGetViewFactory(intent: Intent) = TodoWidgetRemoteViewsFactory(applicationContext)
 }
 
 
-class TodoWidgetRemoteViewsFactory(
-    private val context: Context, intent: Intent
-) : RemoteViewsService.RemoteViewsFactory {
+class TodoWidgetRemoteViewsFactory(private val context: Context) : RemoteViewsService.RemoteViewsFactory {
 
     private var items = listOf<TodoData>()
 

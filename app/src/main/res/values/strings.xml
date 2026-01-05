@@ -114,4 +114,5 @@
     <string name="title_activity_jcmain">JCActivity1</string>
     <string name="my_widget">My Widget</string>
     <string name="click_to_update">Click to update</string>
+    <string name="title_activity_expandable_lists">ExpandableLists</string>
 </resources>
