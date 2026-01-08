@@ -3,9 +3,7 @@ package com.example.firstapplication.settings_preferences
 import android.content.Context
 import android.os.Bundle
 import android.util.AttributeSet
-import android.view.View
 import android.widget.TextView
-import androidx.compose.material.ripple.createRippleModifierNode
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
@@ -24,6 +22,21 @@ class SettingsFragment : PreferenceFragmentCompat() {
     private fun setupPreferences() {
         val replyListPreference = findPreference<CustomListPreference>("custom_reply")
         replyListPreference?.entries = arrayOf("Replay All", "Replay Partial", "Replay None")
+    }
+
+    override fun onDisplayPreferenceDialog(preference: Preference) {
+        // Setting Cont-Desc for AlertDialog ListView Items
+        val fragmentManager = getParentFragmentManager()
+        val tagName = CustomListPreferenceDialogFragmentCompat::class.java.getSimpleName()
+
+        if (fragmentManager.findFragmentByTag(tagName) != null) return
+
+        val listPreferenceFragment: CustomListPreferenceDialogFragmentCompat =
+            CustomListPreferenceDialogFragmentCompat.newInstance(preference.key) { textView ->
+                println("textView added: ${textView.text}")
+            }
+        listPreferenceFragment.setTargetFragment(this, 0)
+        listPreferenceFragment.show(fragmentManager, tagName)
     }
 }
 

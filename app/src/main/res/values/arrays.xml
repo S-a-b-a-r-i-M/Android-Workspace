@@ -3,6 +3,27 @@
     <string-array name="reply_entries">
         <item>Reply</item>
         <item>Reply to all</item>
+        <item>Reply zero</item>
+        <item>Reply one</item>
+        <item>Reply two</item>
+        <item>Reply three</item>
+        <item>Reply four</item>
+        <item>Reply five</item>
+        <item>Reply six</item>
+        <item>Reply seven</item>
+        <item>Reply eight</item>
+        <item>Reply nine</item>
+        <item>Reply ten</item>
+        <item>Reply 11</item>
+        <item>Reply 12</item>
+        <item>Reply 13</item>
+        <item>Reply 14</item>
+        <item>Reply 15</item>
+        <item>Reply 16</item>
+        <item>Reply 17</item>
+        <item>Reply 18</item>
+        <item>Reply 19</item>
+        <item>Reply 20</item>
     </string-array>
 
     <string-array name="reply_values">
