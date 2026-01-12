@@ -36,6 +36,9 @@ import kotlinx.coroutines.launch
         val todos = mutableListOf(
             TodoData("Learn Android Architecture"),
             TodoData("Learn Android Components"),
+            TodoData("Learn Jetpack Compose"),
+            TodoData("Learn Internal Testing Library"),
+            TodoData("Learn Dravidian vs Tamil Dhesiyam"),
             TodoData("Learn VCS"),
             TodoData("Learn Basic Views"),
             TodoData("Learn ViewPager2"),

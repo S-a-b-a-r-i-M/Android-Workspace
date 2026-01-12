@@ -17,7 +17,6 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import com.example.firstapplication.lean_ui_automation.UiAutomationFirstActivity
-import retrofit2.SkipCallbackExecutor
 
 
 @RunWith(AndroidJUnit4::class)

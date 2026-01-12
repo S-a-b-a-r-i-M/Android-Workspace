@@ -44,7 +44,6 @@ class TodoRecyclerViewTest {
                         withText("Learn Tab Creation")
                     )
                 )
-            )
-            .check(matches(isCompletelyDisplayed()))
+            ).check(matches(isCompletelyDisplayed()))
     }
 }
