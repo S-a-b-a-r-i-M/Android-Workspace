@@ -39,6 +39,13 @@ import kotlinx.coroutines.launch
             TodoData("Learn Jetpack Compose"),
             TodoData("Learn Internal Testing Library"),
             TodoData("Learn Dravidian vs Tamil Dhesiyam"),
+            TodoData("Learn About Android OS"),
+            TodoData("Learn English fluently"),
+            TodoData("Learn Car driving"),
+            TodoData("Learn Dancing"),
+            TodoData("Learn Volleyball"),
+            TodoData("Learn Cricket"),
+            TodoData("Learn ShuttleCock"),
             TodoData("Learn VCS"),
             TodoData("Learn Basic Views"),
             TodoData("Learn ViewPager2"),
@@ -96,6 +103,7 @@ class TodoAdapter(
 
         fun bind(todo: TodoData, onTodoCompleted: (Int) -> Unit) {
             todoTv.text = todo.title
+            todoTv.contentDescription = todo.title
             todoCheckBox.isChecked = todo.isCompleted
 
             todoCheckBox.setOnCheckedChangeListener(null) // Clear previous listener to avoid unwanted triggers

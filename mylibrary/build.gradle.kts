@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish") // to publish this library into local maven repo
 }
 
 android {
@@ -43,4 +44,25 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.firstapplication"
+                artifactId = "mylibrary"
+                version = "1.0.0"
+            }
+        }
+
+        repositories {
+            maven {
+                name = "local"
+                url = uri("file://${System.getProperty("user.home")}/.m2/repository")
+            }
+        }
+    }
 }

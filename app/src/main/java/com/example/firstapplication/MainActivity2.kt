@@ -105,6 +105,9 @@ class MainActivity2 : StackInfoAppCompactActivity() {
                 .create()
 
             alertDialog.show()
+            alertDialog.setOnShowListener { _ ->
+
+            }
 
             // Method-1 -> Working 👍
 //            /*

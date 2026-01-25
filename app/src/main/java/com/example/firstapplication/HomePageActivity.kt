@@ -94,7 +94,7 @@ class HomePageActivity : StackInfoAppCompactActivity() {
         showToast("Developer Option is ${if (adb != 0) "Enabled" else "Disabled"}")
 
 
-        // Accessing Another Module Class
+        // Accessing Library Another Module Class
         MyLibraryClass("Accessing my own library class. Which sits in different module.")
 
         // Variables With Build Type

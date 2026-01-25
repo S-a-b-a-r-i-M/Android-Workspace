@@ -1,6 +1,5 @@
 package com.example.firstapplication.learn_jetpack_compose
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,6 +18,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
@@ -32,15 +33,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.firstapplication.learn_jetpack_compose.ui.theme.FirstApplicationTheme
 import com.example.firstapplication.learn_jetpack_compose.ui.theme.PurpleGrey10
 
@@ -61,8 +67,11 @@ class JCActivity1 : ComponentActivity() {
 fun GreetingScreen() {
     val modifier1 = Modifier.width(100.dp)
     val modifier2 = modifier1.height(100.dp)
-
     val hPaddingModifier = Modifier.padding(vertical = 8.dp)
+
+    // TODO-NOTE: Here we are using 'var' to hold state.
+    // TODO: Have to understand how by works here ?
+    var isOnBoardingCompleted by remember { mutableStateOf(false) }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Surface(
@@ -90,6 +99,9 @@ fun GreetingScreen() {
 
                 ResizableTextView()
 
+                HorizontalDivider(hPaddingModifier)
+
+                if (!isOnBoardingCompleted) OnBoardingScreen { isOnBoardingCompleted = true }
             }
         }
     }
@@ -97,19 +109,19 @@ fun GreetingScreen() {
 
 @Composable
 fun ResizableTextView() {
-    var isExpanded by remember { mutableStateOf(false) }
+    val isExpanded = remember { mutableStateOf(false) }
 
     Text(
         text = "Compose apps transform data into UI by calling composable functions. If your data changes, Compose re-executes these functions with the new data, creating an updated UI—this is called recomposition.",
-        maxLines = if (isExpanded) Int.MAX_VALUE else 2,
+        maxLines = if (isExpanded.value) Int.MAX_VALUE else 2,
         overflow = TextOverflow.Ellipsis,
     )
     Spacer(Modifier.height(4.dp))
     Text(
-        text = if (isExpanded) "Show Less" else "Show More",
+        text = if (isExpanded.value) "Show Less" else "Show More",
         color = MaterialTheme.colorScheme.primary,
         style = MaterialTheme.typography.labelMedium,
-        modifier = Modifier.clickable(true) { isExpanded = !isExpanded }
+        modifier = Modifier.clickable(true) { isExpanded.value = !isExpanded.value }
     )
 }
 
@@ -193,4 +205,30 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
+}
+
+@Composable
+fun OnBoardingScreen(onContinueClicked: () -> Unit) {
+    Column(
+        modifier = Modifier
+            .wrapContentHeight()
+            .fillMaxWidth(),
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = "Welcome to the Basics of Jetpack Compose!",
+            modifier = Modifier.wrapContentSize(),
+            fontWeight = FontWeight.Medium,
+            style = TextStyle( fontSize = 14.sp)
+        )
+        Button(
+            onClick = { onContinueClicked() },
+            modifier = Modifier
+                .wrapContentSize()
+                .padding(16.dp)
+        ) {
+            Text(text = "Skip...")
+        }
+    }
 }

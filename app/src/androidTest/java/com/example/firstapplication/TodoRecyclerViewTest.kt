@@ -7,6 +7,7 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.matcher.ViewMatchers.hasDescendant
 import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -41,7 +42,7 @@ class TodoRecyclerViewTest {
             .perform(
                 RecyclerViewActions.scrollTo<TodoAdapter.ViewHolder>(
                     hasDescendant(
-                        withText("Learn Tab Creation")
+                        withContentDescription("Learn Tab Creation")
                     )
                 )
             ).check(matches(isCompletelyDisplayed()))
