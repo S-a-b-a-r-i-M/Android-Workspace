@@ -115,4 +115,6 @@
     <string name="my_widget">My Widget</string>
     <string name="click_to_update">Click to update</string>
     <string name="title_activity_expandable_lists">ExpandableLists</string>
+    <string name="show_less">show_less</string>
+    <string name="show_more">show_more</string>
 </resources>

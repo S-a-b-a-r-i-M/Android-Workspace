@@ -30,17 +30,15 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
@@ -71,7 +69,7 @@ fun GreetingScreen() {
 
     // TODO-NOTE: Here we are using 'var' to hold state.
     // TODO: Have to understand how by works here ?
-    var isOnBoardingCompleted by remember { mutableStateOf(false) }
+    var isOnBoardingCompleted by rememberSaveable { mutableStateOf(false) }
 
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
         Surface(
@@ -108,8 +106,8 @@ fun GreetingScreen() {
 }
 
 @Composable
-fun ResizableTextView() {
-    val isExpanded = remember { mutableStateOf(false) }
+fun ResizableTextView(isExpandedState: MutableState<Boolean>? = null) {
+    val isExpanded = isExpandedState ?: rememberSaveable { mutableStateOf(false) }
 
     Text(
         text = "Compose apps transform data into UI by calling composable functions. If your data changes, Compose re-executes these functions with the new data, creating an updated UI—this is called recomposition.",

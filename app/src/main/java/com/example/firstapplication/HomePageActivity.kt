@@ -36,6 +36,7 @@ import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.lean_ui_automation.DialerActivity
 import com.example.firstapplication.lean_ui_automation.UiAutomationFirstActivity
+import com.example.firstapplication.learn_jetpack_compose.ExpandableLists
 import com.example.firstapplication.learn_jetpack_compose.JCActivity1
 import com.example.firstapplication.learn_recyclerview.ListActivity
 import com.example.firstapplication.learn_recyclerview.RecyclerViewActivity
@@ -314,6 +315,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 " using compose",
                 JCActivity1::class.java,
                 R.drawable.outline_admin_panel_settings_24
+            ), SingleActivityData(
+                "Expandable List",
+                " using compose",
+                ExpandableLists::class.java,
+                R.drawable.outline_list_alt_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView
