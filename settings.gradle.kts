@@ -24,3 +24,4 @@ rootProject.name = "First Application"
 include(":app")
 include(":myapplication2")
 include(":mylibrary")
+include(":codegen")

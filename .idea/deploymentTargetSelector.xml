@@ -4,7 +4,7 @@
     <selectionStates>
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2026-01-06T04:49:30.209929Z">
+        <DropdownSelection timestamp="2026-02-18T07:03:07.393099Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=/Users/sabari-23133/.android/avd/Pixel_9_Pro.avd" />
@@ -29,19 +29,13 @@
       <SelectionState runConfigName="myapplication2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="changeTextInNewActivity()">
+      <SelectionState runConfigName="ExpandableListsScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="makeCallWithValidPhone()">
+      <SelectionState runConfigName="GreetingScreen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="TodoRecyclerViewTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="existingItemWithText_markDone()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="changeText_WithBackgroundProcess()">
+      <SelectionState runConfigName="mylibrary.codegen">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>

@@ -1,0 +1,129 @@
+{
+  "sealed_class": {
+    "name": "UiAutoContentDescription",
+    "params": [
+      {
+        "mutability": "val",
+        "name": "staticKey",
+        "type": "String"
+      },
+      {
+        "is_vararg": true,
+        "name": "values",
+        "type": "String"
+      }
+    ],
+    "body": "val identifiers : Array<out String> = values"
+  },
+  "sub_classes": [
+    {
+      "name": "ToolBarTitle",
+      "static_key": "ToolbarTitle",
+      "params": []
+    },
+    {
+      "name": "SectionTitle",
+      "static_key": "Section_Title",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "SectionItemTitle",
+      "static_key": "SectionItem_Title",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "SectionItemDescription",
+      "static_key": "SectionItem_Description",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "SectionItemCheckbox",
+      "static_key": "SectionItem_Checkbox",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "PermissionText",
+      "static_key": "Permission_Text",
+      "params": []
+    },
+    {
+      "name": "PermissionExpand",
+      "static_key": "Permission_Expand",
+      "params": []
+    },
+    {
+      "name": "PermissionDescription",
+      "static_key": "Permission_Description",
+      "params": []
+    },
+    {
+      "name": "PermissionSettingsButton",
+      "static_key": "Permission_SettingsButton",
+      "params": []
+    },
+    {
+      "name": "PermissionSettingsIcon",
+      "static_key": "Permission_SettingsIcon",
+      "params": []
+    },
+    {
+      "name": "BatteryOptimizationText",
+      "static_key": "BatteryOptimization_Text",
+      "params": []
+    },
+    {
+      "name": "BatteryOptimizationDescription",
+      "static_key": "BatteryOptimization_Description",
+      "params": []
+    },
+    {
+      "name": "BatteryOptimizationButton",
+      "static_key": "BatteryOptimization_Button",
+      "params": []
+    },
+    {
+      "name": "BatteryOptimizationExpand",
+      "static_key": "BatteryOptimization_Expand",
+      "params": []
+    },
+    {
+      "name": "NumberOfSelectedProvidersContainer",
+      "static_key": "NumberOf_Selected_Providers_Container",
+      "params": []
+    },
+    {
+      "name": "NumberOfSelectedProviders",
+      "static_key": "NumberOf_Selected_Providers",
+      "params": []
+    },
+    {
+      "name": "ProviderAppCheckbox",
+      "static_key": "Provider_Checkbox",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "ProviderAppName",
+      "static_key": "Provider_Name",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    },
+    {
+      "name": "NotInstalled",
+      "static_key": "NotInstalled",
+      "params": [
+        { "name": "identifier", "type": "String" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "sealed_classes" : [
+    {
+      "name": "UiAutomationViewIdentifier",
+      "params" : [
+        {
+          "mutability" : "val",
+          "name" : "automationContentDescription",
+          "type" : "String"
+        }
+      ]
+    },
+    {
+      "name": "CRMUiAutomationViewIdentifier",
+      "params" : [
+        {
+          "is_vararg": true,
+          "name" : "values",
+          "type" : "String"
+        }
+      ],
+      "super_classes" : [
+        {
+            "name" : "UiAutomationViewIdentifier",
+            "params" : [
+                {
+                  "name" : "automationContentDescription",
+                  "value" : "contentDescription(*values)"
+                }
+            ]
+        }
+      ],
+      "companion_object" : {
+        "properties" : [
+          {
+            "access_modifier" : "private",
+            "is_const" : true,
+            "mutability" : "val",
+            "name" : "TAG_SEPARATOR",
+            "type" : "String",
+            "value" : "\"_\""
+          },
+          {
+            "access_modifier" : "private",
+            "is_const" : true,
+            "mutability" : "val",
+            "name" : "CONTENT_DESCRIPTION_PREFIX",
+            "type" : "String",
+            "value" : "\"UI_ID\""
+          }
+        ],
+        "functions" : []
+      }
+    }
+  ]
+}

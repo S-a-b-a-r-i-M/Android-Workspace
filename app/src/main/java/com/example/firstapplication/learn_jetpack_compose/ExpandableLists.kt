@@ -225,10 +225,7 @@ private fun DataCard(data : CardData) {
             ) {
                 Icon(
                     imageVector = if (isExpanded) Icons.Outlined.KeyboardArrowUp else Icons.Outlined.KeyboardArrowDown,
-                    contentDescription = if (isExpanded)
-                        stringResource(R.string.show_less)
-                    else
-                        stringResource(R.string.show_more),
+                    contentDescription = if (isExpanded) stringResource(R.string.show_less) else stringResource(R.string.show_more),
                     tint = MaterialTheme.colorScheme.onPrimaryContainer
                 )
             }
@@ -241,9 +238,7 @@ private fun DataCard(data : CardData) {
             items(data.highlights) { highlight ->
                 Card(
                     modifier = Modifier.padding(horizontal = 4.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = Color.Magenta
-                    )
+                    colors = CardDefaults.cardColors(containerColor = Color.Magenta)
                 ) {
                     Text(
                         highlight,

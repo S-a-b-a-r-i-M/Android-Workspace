@@ -102,6 +102,7 @@ dependencies {
     // 3. androidTestImplementation are for tests running on Android devices
     // 4. debugImplementation are only included in debug builds
     implementation(project(":mylibrary"))
+    compileOnly(project(":codegen"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -183,4 +184,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-idling-resource:3.6.1")
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+}
+
+tasks.named("preBuild") {
+     dependsOn(":codegen:UiAutomationIdentifiersTask")
 }
