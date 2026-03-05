@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("newcodegen")
     repositories {
         google {
             content {

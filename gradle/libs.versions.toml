@@ -30,6 +30,7 @@ appcompatV7 = "28.0.0"
 coreKtxVersion = "1.17.0"
 preference = "1.2.1"
 glance = "1.1.1"
+jetbrainsKotlinJvm = "2.2.0"
 # ksp = "2.0.21-1.0.25" # [ Kotlin Compiler Version ] - [ KSP Plugin Version ]
 
 [libraries]
@@ -76,3 +77,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version = "2.2.0" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }

@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
     //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
     kotlin("kapt")
+    id("com.example.newcodegen")
 }
 /* Just A Custom Plugin */
 apply<CustomPlugin>()
@@ -14,6 +15,13 @@ class CustomPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         println("Hello Tech Universe !!! I'm a custom plugin😁")
     }
+}
+
+println("${layout.buildDirectory} ,,, $rootDir")
+// Configure Code GenPlugin Task Needed paths
+codeGen {
+    sourceJsonFilePath = "/Users/sabari-23133/AndroidStudioProjects/FirstApplication/app/src/main/java/com/example/firstapplication/util/property/UiAutomationIdentifiers.json"
+    targetKtFilePath = "/Users/sabari-23133/AndroidStudioProjects/FirstApplication/app/src/main/java/com/example/firstapplication/util/uiauto/UiAutomationIdentifiers.kt"
 }
 
 android {
@@ -185,7 +193,7 @@ dependencies {
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 }
-
-tasks.named("preBuild") {
-     dependsOn(":codegen:UiAutomationIdentifiersTask")
-}
+//
+//tasks.named("preBuild") {
+//     dependsOn(":codegen:UiAutomationIdentifiersTask")
+//}
