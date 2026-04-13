@@ -36,6 +36,7 @@ import com.example.firstapplication.coroutine.CounterActivity
 import com.example.firstapplication.custom.CustomToolbar
 import com.example.firstapplication.lean_ui_automation.DialerActivity
 import com.example.firstapplication.lean_ui_automation.UiAutomationFirstActivity
+import com.example.firstapplication.learn_draggable.usingxmlviews.ReorderableListUsingXmlActivity
 import com.example.firstapplication.learn_jetpack_compose.ExpandableLists
 import com.example.firstapplication.learn_jetpack_compose.JCActivity1
 import com.example.firstapplication.learn_recyclerview.ListActivity
@@ -319,6 +320,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Expandable List",
                 " using compose",
                 ExpandableLists::class.java,
+                R.drawable.outline_list_alt_24
+            ), SingleActivityData(
+                "Reorderable List Using XML",
+                "using xml",
+                ReorderableListUsingXmlActivity::class.java,
                 R.drawable.outline_list_alt_24
             )
         )

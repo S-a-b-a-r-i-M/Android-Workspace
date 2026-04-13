@@ -28,6 +28,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
+            android:name=".learn_draggable.usingxmlviews.ReorderableListUsingXmlActivity"
+            android:exported="false" />
+        <activity
             android:name=".learn_jetpack_compose.ExpandableLists"
             android:exported="false"
             android:label="@string/title_activity_expandable_lists"

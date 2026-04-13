@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.parcelize") // But this is working
     //    alias(libs.plugins.kotlin.parcelize) // This is Not Working
     kotlin("kapt")
-    id("com.example.newcodegen")
+    // id("com.example.newcodegen")
 }
 /* Just A Custom Plugin */
 apply<CustomPlugin>()
@@ -19,14 +19,16 @@ class CustomPlugin : Plugin<Project> {
 
 println("${layout.buildDirectory} ,,, $rootDir")
 // Configure Code GenPlugin Task Needed paths
+/*
 codeGen {
     sourceJsonFilePath = "/Users/sabari-23133/AndroidStudioProjects/FirstApplication/app/src/main/java/com/example/firstapplication/util/property/UiAutomationIdentifiers.json"
     targetKtFilePath = "/Users/sabari-23133/AndroidStudioProjects/FirstApplication/app/src/main/java/com/example/firstapplication/util/uiauto/UiAutomationIdentifiers.kt"
 }
+*/
 
 android {
     namespace = "com.example.firstapplication" // Used for generated code and R class.
-    compileSdk = 35  /* this tells Gradle which version of the Android SDK to use when compiling your code. */
+    compileSdk = 35 /* this tells Gradle which version of the Android SDK to use when compiling your code. */
 
     defaultConfig {
         applicationId = "com.example.firstapplication" // Used to identify your app on device & Play Store
@@ -110,7 +112,6 @@ dependencies {
     // 3. androidTestImplementation are for tests running on Android devices
     // 4. debugImplementation are only included in debug builds
     implementation(project(":mylibrary"))
-    compileOnly(project(":codegen"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

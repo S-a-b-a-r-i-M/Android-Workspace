@@ -1,21 +1,6 @@
 {
-  "sealed_class": {
-    "name": "UiAutoContentDescription",
-    "params": [
-      {
-        "mutability": "val",
-        "name": "staticKey",
-        "type": "String"
-      },
-      {
-        "is_vararg": true,
-        "name": "values",
-        "type": "String"
-      }
-    ],
-    "body": "val identifiers : Array<out String> = values"
-  },
-  "sub_classes": [
+  "package_name" : "com.example.firstapplication.util.uiauto",
+  "identifier_classes": [
     {
       "name": "ToolBarTitle",
       "static_key": "ToolbarTitle",
@@ -24,30 +9,22 @@
     {
       "name": "SectionTitle",
       "static_key": "Section_Title",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "SectionItemTitle",
       "static_key": "SectionItem_Title",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "SectionItemDescription",
       "static_key": "SectionItem_Description",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "SectionItemCheckbox",
       "static_key": "SectionItem_Checkbox",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "PermissionText",
@@ -107,23 +84,17 @@
     {
       "name": "ProviderAppCheckbox",
       "static_key": "Provider_Checkbox",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "ProviderAppName",
       "static_key": "Provider_Name",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     },
     {
       "name": "NotInstalled",
       "static_key": "NotInstalled",
-      "params": [
-        { "name": "identifier", "type": "String" }
-      ]
+      "params": ["identifier"]
     }
   ]
 }
