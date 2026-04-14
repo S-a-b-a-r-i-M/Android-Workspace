@@ -28,6 +28,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ApplicationWithoutActionBar">
         <activity
+            android:name=".learn_draggable.usingjc.ReorderableListUsingJC"
+            android:exported="false"
+            android:label="@string/title_activity_reorderable_list_using_jc"
+            android:theme="@style/Theme.ApplicationWithoutActionBar" />
+        <activity
             android:name=".learn_draggable.usingxmlviews.ReorderableListUsingXmlActivity"
             android:exported="false" />
         <activity

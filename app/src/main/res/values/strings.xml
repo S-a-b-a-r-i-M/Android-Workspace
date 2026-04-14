@@ -118,4 +118,5 @@
     <string name="show_less">show_less</string>
     <string name="show_more">show_more</string>
     <string name="title">Title</string>
+    <string name="title_activity_reorderable_list_using_jc">ReorderableListUsingJC</string>
 </resources>

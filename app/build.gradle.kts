@@ -183,6 +183,9 @@ dependencies {
     implementation(libs.widget.glance)
     implementation(libs.widget.glance.material3)
 
+    // JC Reorderable Library
+    implementation("sh.calvin.reorderable:reorderable:3.0.0")
+
     androidTestImplementation("androidx.test.ext:junit-ktx:1.1.3")
     androidTestImplementation("androidx.test:runner:1.6.2")
 

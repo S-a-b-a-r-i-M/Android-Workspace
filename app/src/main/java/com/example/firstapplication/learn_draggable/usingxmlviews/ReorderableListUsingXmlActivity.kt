@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.semantics.CollectionItemInfo
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.firstapplication.R
 import com.example.firstapplication.databinding.ActivityReorderableListUsingXmlBinding
-import java.util.Collections
 
 class ReorderableListUsingXmlActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReorderableListUsingXmlBinding
@@ -48,14 +46,14 @@ class ReorderableListUsingXmlActivity : AppCompatActivity() {
             itemTouchHelper.attachToRecyclerView(this)
         }
         reorderableListAdapter.setDataItems(listOf(
-            ReorderableItem(
+            ReorderableXMLItem(
                 title="1 Exclusive | Iranian Strike on U.S. Embassy Caused More Damage Than Disclosed - WSJ",
                 urlToImage="https://images.wsj.net/im-43467832/social", author="Stephen Kalin, Robbie Gramer, Alexander Ward",
                 content="RIYADH, Saudi ArabiaAn Iranian drone attack last month on the U.S. Embassy in Saudi Arabia did more extensive damage than previously disclosed, current and former American officials said, showing Ira… [+421 chars]",
                 description="Two drones hit the Saudi compound, sparking a fire that raged for hours",
                 publishedAt="2026-04-04T00:00:00Z"
             ),
-            ReorderableItem(
+            ReorderableXMLItem(
                 title = "2 Live Updates: U.S. fighter jet downed over Iran, 1 crew member rescued by American forces - CBS News",
                 urlToImage = "https://assets3.cbsnewsstatic.com/hub/i/r/2026/04/03/3427b983-3164-41ca-b086-a0e15f685a9d/thumbnail/1200x630/3031aac935b7d61336bed23872047676/iran-war-b1-bridge-2268981536.jpg",
                 author = "Tucker Reals, Lucia I Suarez Sang",
@@ -63,7 +61,7 @@ class ReorderableListUsingXmlActivity : AppCompatActivity() {
                 description = "Iran shot down a U.S. fighter jet and one crew member was rescued by American forces as a search continues for a second crew member, U.S. officials say.",
                 publishedAt = "2026-04-03T23:48:00Z",
             ),
-            ReorderableItem(
+            ReorderableXMLItem(
                 title = "3 United Airlines raises bag fees amid rising fuel costs and introduces tiered premium fares - AP News",
                 urlToImage = "https://dims.apnews.com/dims4/default/2ea3d66/2147483647/strip/true/crop/6000x3998+0+1/resize/980x653!/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fd4%2Fcf%2F57920833cac114cf5161d680099d%2F4d49837d17e1424f97fa95b401d75d10",
                 author = "Rio Yamat, Ap Airlines, Travel Writer",
@@ -71,7 +69,7 @@ class ReorderableListUsingXmlActivity : AppCompatActivity() {
                 description = "United Airlines is raising checked bag fees starting Friday. The move comes as higher fuel costs ripple through the airline industry. Most travelers flying within the U.S., Mexico, Canada and Latin America will now pay $45 for the first checked bag and $55 for the second.",
                 publishedAt = "2026-04-03T23:31:00Z",
             ),
-            ReorderableItem(
+            ReorderableXMLItem(
                 title = "4 ‘This is a recalibration’: Trump Cabinet worries no one is safe after Bondi and Noem firings - CNN",
                 urlToImage = "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2235635789.jpg?c=16x9&q=w_800,c_fill",
                 author = "Adam Cancryn, Kristen Holmes",
@@ -79,7 +77,7 @@ class ReorderableListUsingXmlActivity : AppCompatActivity() {
                 description = "",
                 publishedAt = "",
             ),
-            ReorderableItem(
+            ReorderableXMLItem(
                 title = "5 Live Updates: U.S. fighter jet downed over Iran, 1 crew member rescued by American forces - CBS News",
                 urlToImage = "https://assets3.cbsnewsstatic.com/hub/i/r/2026/04/03/3427b983-3164-41ca-b086-a0e15f685a9d/thumbnail/1200x630/3031aac935b7d61336bed23872047676/iran-war-b1-bridge-2268981536.jpg",
                 author = "5 Tucker Reals, Lucia I Suarez Sang",
@@ -91,7 +89,8 @@ class ReorderableListUsingXmlActivity : AppCompatActivity() {
     }
 }
 
-data class ReorderableItem(
+
+data class ReorderableXMLItem(
     val title: String,
     val urlToImage: String,
     val author: String,
@@ -100,14 +99,15 @@ data class ReorderableItem(
     val publishedAt: String
 )
 
-class ReorderableXMLListAdapter(val onClick: (ReorderableItem) -> Unit = {}) : RecyclerView.Adapter<ReorderableXMLListAdapter.ViewHolder>() {
+
+class ReorderableXMLListAdapter(val onClick: (ReorderableXMLItem) -> Unit = {}) : RecyclerView.Adapter<ReorderableXMLListAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageView)
         val titleTV: TextView = itemView.findViewById(R.id.titleTV)
         val descriptionTV: TextView = itemView.findViewById(R.id.descriptionTV)
         val dateTimeTV: TextView = itemView.findViewById(R.id.dateTimeTV)
 
-        fun bind(item: ReorderableItem) {
+        fun bind(item: ReorderableXMLItem) {
             // Load ImageView
             Glide.with(itemView)
                 .load(item.urlToImage)
@@ -121,7 +121,7 @@ class ReorderableXMLListAdapter(val onClick: (ReorderableItem) -> Unit = {}) : R
         }
     }
 
-    private var dataItems: MutableList<ReorderableItem> = mutableListOf()
+    private var dataItems: MutableList<ReorderableXMLItem> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -136,7 +136,7 @@ class ReorderableXMLListAdapter(val onClick: (ReorderableItem) -> Unit = {}) : R
 
     override fun getItemCount() = dataItems.size
 
-    fun setDataItems(newDataItems: List<ReorderableItem>) {
+    fun setDataItems(newDataItems: List<ReorderableXMLItem>) {
         dataItems = newDataItems.toMutableList()
         notifyDataSetChanged()
     }
