@@ -119,4 +119,6 @@
     <string name="show_more">show_more</string>
     <string name="title">Title</string>
     <string name="title_activity_reorderable_list_using_jc">ReorderableListUsingJC</string>
+    <string name="title_activity_basic_state_codelab">BasicStateCodelabActivity</string>
+    <string name="title_activity_jcperformance_killer">JCPerformanceKillerActivity</string>
 </resources>

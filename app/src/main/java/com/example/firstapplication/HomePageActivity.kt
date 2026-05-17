@@ -40,6 +40,7 @@ import com.example.firstapplication.learn_draggable.usingjc.ReorderableListUsing
 import com.example.firstapplication.learn_draggable.usingxmlviews.ReorderableListUsingXmlActivity
 import com.example.firstapplication.learn_jetpack_compose.ExpandableLists
 import com.example.firstapplication.learn_jetpack_compose.JCActivity1
+import com.example.firstapplication.learn_jetpack_compose.stateInComposeApp.ui.BasicStateCodelabActivity
 import com.example.firstapplication.learn_recyclerview.ListActivity
 import com.example.firstapplication.learn_recyclerview.RecyclerViewActivity
 import com.example.firstapplication.learn_recyclerview.RecyclerWithDiffUtil
@@ -331,6 +332,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "Reorderable List Using JC",
                 "using jc",
                 ReorderableListUsingJC::class.java,
+                R.drawable.outline_list_alt_24
+            ), SingleActivityData(
+                "BasicStateCodelabActivity JC",
+                "using jc",
+                BasicStateCodelabActivity::class.java,
                 R.drawable.outline_list_alt_24
             )
         )

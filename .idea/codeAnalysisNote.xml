@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CodeAnalysisNoteState">
+    <option name="fileNotes">
+      <map>
+        <entry key="com.example.firstapplication.PickerActivity">
+          <value>
+            <FileNoteState />
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.coroutine.CounterActivity">
+          <value>
+            <FileNoteState>
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="coroutine" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.coroutine.CounterWithCoroutineFragment">
+          <value>
+            <FileNoteState>
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="coroutine" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.coroutine.CounterWithoutCoroutineFragment">
+          <value>
+            <FileNoteState>
+              <option name="description" value="description " />
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="coroutine" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.learn_jetpack_compose.JCActivity1">
+          <value>
+            <FileNoteState>
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="jetpack compose" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.learn_retrofit.RetrofitInstance">
+          <value>
+            <FileNoteState>
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="retrofit" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.newsapp.api.RetrofitInstance">
+          <value>
+            <FileNoteState />
+          </value>
+        </entry>
+        <entry key="com.example.firstapplication.notes.ui.CreateOrEditNotePage">
+          <value>
+            <FileNoteState>
+              <option name="description" value="This is Edit note activity" />
+              <option name="tags">
+                <list>
+                  <TagModel>
+                    <option name="label" value="Edit Note Activity" />
+                  </TagModel>
+                </list>
+              </option>
+            </FileNoteState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
