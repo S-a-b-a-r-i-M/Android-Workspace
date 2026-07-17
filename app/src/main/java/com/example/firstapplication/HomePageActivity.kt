@@ -338,6 +338,11 @@ class HomePageActivity : StackInfoAppCompactActivity() {
                 "using jc",
                 BasicStateCodelabActivity::class.java,
                 R.drawable.outline_list_alt_24
+            ), SingleActivityData(
+                "All Observables",
+                "LiveData, Fow",
+                ObservablesActivity::class.java,
+                R.drawable.outline_coffee_24
             )
         )
         val topicsRecyclerView = binding.topicsRecyclerView

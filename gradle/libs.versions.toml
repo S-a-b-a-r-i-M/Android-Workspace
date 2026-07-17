@@ -31,6 +31,7 @@ coreKtxVersion = "1.17.0"
 preference = "1.2.1"
 glance = "1.1.1"
 jetbrainsKotlinJvm = "2.2.0"
+activityKtx = "1.13.0"
 # ksp = "2.0.21-1.0.25" # [ Kotlin Compiler Version ] - [ KSP Plugin Version ]
 
 [libraries]
@@ -70,6 +71,7 @@ runner = { group = "com.android.support.test", name = "runner", version.ref = "r
 espresso-core = { group = "com.android.support.test.espresso", name = "espresso-core", version.ref = "espressoCoreVersion" }
 appcompat-v7 = { group = "com.android.support", name = "appcompat-v7", version.ref = "appcompatV7" }
 androidx-preference = { group = "androidx.preference", name = "preference", version.ref = "preference" }
+androidx-activity-ktx = { group = "androidx.activity", name = "activity-ktx", version.ref = "activityKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
