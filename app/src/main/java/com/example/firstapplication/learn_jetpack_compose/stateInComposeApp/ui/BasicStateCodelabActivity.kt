@@ -57,7 +57,7 @@ fun Greeting(
     var count2 by mutableIntStateOf(0)
     var colour2 by mutableStateOf(Color.Red)
 
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Column(modifier = modifier.padding(8.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
         // Using State With Remember
         Card(modifier = Modifier.background(colour1).padding(5.dp)) {
             Column(modifier = Modifier.padding(8.dp)) {
@@ -86,7 +86,7 @@ fun Greeting(
     }
 }
 
-@Preview(showBackground = true)
+@LightAndDarkPreview
 @Composable
 fun GreetingPreview() {
     FirstApplicationTheme {

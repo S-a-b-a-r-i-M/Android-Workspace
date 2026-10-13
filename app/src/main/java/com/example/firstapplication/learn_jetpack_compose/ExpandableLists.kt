@@ -218,7 +218,7 @@ private fun DataCard(data : CardData) {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             // TODO: Icon Image (ex: country flag)
-            Text(text = data.heading, style = MaterialTheme.typography.titleMedium)
+            Text(text = data.heading, style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSecondary)
             IconButton(
                 onClick = { isExpanded = !isExpanded},
                 modifier = Modifier.size(32.dp)
@@ -226,7 +226,7 @@ private fun DataCard(data : CardData) {
                 Icon(
                     imageVector = if (isExpanded) Icons.Outlined.KeyboardArrowUp else Icons.Outlined.KeyboardArrowDown,
                     contentDescription = if (isExpanded) stringResource(R.string.show_less) else stringResource(R.string.show_more),
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer
+                    tint = MaterialTheme.colorScheme.onSecondary
                 )
             }
         }
@@ -252,7 +252,8 @@ private fun DataCard(data : CardData) {
         // Description
         if (isExpanded) Text(
             text = data.description,
-            modifier = Modifier.padding(vertical = 4.dp)
+            modifier = Modifier.padding(vertical = 4.dp),
+            color = MaterialTheme.colorScheme.onSecondaryContainer
         )
     }
 }

@@ -21,14 +21,17 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
@@ -60,6 +63,7 @@ class JCActivity1 : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 fun GreetingScreen() {
@@ -67,16 +71,21 @@ fun GreetingScreen() {
     val modifier2 = modifier1.height(100.dp)
     val hPaddingModifier = Modifier.padding(vertical = 8.dp)
 
-    // TODO-NOTE: Here we are using 'var' to hold state.
-    // TODO: Have to understand how by works here ?
     var isOnBoardingCompleted by rememberSaveable { mutableStateOf(false) }
 
-    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = { TopAppBar(title = { Text("Greeting Screen") }) },
+        bottomBar = { BottomAppBar(
+            modifier = Modifier.height(60.dp).padding(horizontal = 8.dp)
+        ) { Text("Welcome..!") } },
+    ) { innerPadding ->
         Surface(
             modifier = Modifier
+                .fillMaxSize()
                 .padding(innerPadding)
                 .padding(6.dp),
-            shadowElevation = 16.dp,
+            shadowElevation = 12.dp,
         ) {
             Column {
                 BoxExamples(innerPadding)
@@ -130,11 +139,11 @@ fun BoxExamples(innerPadding: PaddingValues) {
             Box(
                 modifier = Modifier
                     .size(160.dp)
-                    .padding(16.dp)
+                    .padding(12.dp)
                     .background(Color.Red)
-                    .padding(16.dp)
+                    .padding(12.dp)
                     .background(Color.Blue)
-                    .padding(16.dp)
+                    .padding(12.dp)
                     .background(Color.Green)
             ) {
                 Greeting(
@@ -144,13 +153,7 @@ fun BoxExamples(innerPadding: PaddingValues) {
                         .background(MaterialTheme.colorScheme.primaryContainer)
                 )
             }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .background(Color.Red)
-                    .padding(20.dp)
-                    .background(Color.Blue)
-            )
+
             // We can use kotlin functionalities here
             for (i in 0..10)
                 Text(
@@ -164,7 +167,7 @@ fun BoxExamples(innerPadding: PaddingValues) {
                 .width(200.dp)
                 .height(100.dp)
                 .padding(16.dp)
-                .clip(RoundedCornerShape(8.dp))
+                .clip(RoundedCornerShape(12.dp))
                 .background(Color.Blue)
                 .clickable {}
         ) { }
